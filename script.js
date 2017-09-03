@@ -1,0 +1,3 @@
+function lampada () {
+    alert('teste')
+}
