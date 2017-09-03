@@ -1,3 +1,0 @@
-function lampada () {
-    alert('teste')
-}
