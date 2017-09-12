@@ -1,3 +1,2 @@
 function lampada () {
-    alert('teste')
-}
+    alert('teste')}
