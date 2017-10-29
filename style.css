@@ -58,14 +58,18 @@ body {
     float: right;
     color: red;}
 
-#Artigos {
-    padding-bottom: 20px;
-    background-color: lightcyan;}
-
-#Softwares {
+.Softwares {
     background-color: lightyellow;}
 
-#Softwares a {
+.Softwares a {
     text-decoration: none;
     display: inline-block;
     margin-top: 10px;}
+
+.Centro {
+    padding: auto;
+}
+
+#Tarefas {
+    padding-bottom: 20px;
+    background-color: lightcyan;}
