@@ -27,7 +27,7 @@ body {
     display: block;
     position: relative;
     width:1050px;
-    height:570px;
+    height:700px;
     margin-top: 10px;}
 
 .Menu-Lateral {
@@ -52,11 +52,13 @@ body {
     margin-bottom: 10px;}
 
 .Prática-Esquerda {
-    float: left;}
+    float: left;
+    clear:right;}
 
 .Prática-Direita {
     float: right;
-    color: red;}
+    color: red;
+    clear: right;}
 
 .Softwares {
     background-color: lightyellow;}
@@ -68,6 +70,8 @@ body {
 
 .Centro {
     padding: auto;}
+
+.Artigos {padding-bottom: 20px}
 
 #Tarefas {
     padding-bottom: 20px;
