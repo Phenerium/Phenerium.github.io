@@ -61,6 +61,7 @@ body {
     clear: right;}
 
 .Softwares {
+    clear: left;
     background-color: lightyellow;}
 
 .Softwares a {
