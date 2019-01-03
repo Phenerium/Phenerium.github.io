@@ -1,79 +1,70 @@
 @charset "UTF-8";
 
-/* * {border: 1px solid rgba(0, 0, 0, .3)} */
+* {border: 1px solid rgba(0, 0, 0, .3); padding:0; box-sizing: border-box; margin:0}
 
-html {
-    background: url("Structure/Background.jpg") no-repeat fixed 80% 20%;
-    background-size: cover;}
 
-body {
+.header {
+    background: url("sprites/background.jpg");
     position: relative;
-    width: 1320px;}
+    height: 20vh;}
+.header .logo {
+    position: absolute;
+    width: 20vh;
+    height: 20vh;
+    left: 45vw;
+}
 
-
-.Cabeçalho {
+.tel1 {
+    position: absolute;
+    right: 1vw;
+    top: 8vh;
+    height: 6vh;}
+.tel2 {
+    position: absolute;
+    right: 1vw;
+    height: 6vh;
+    top: 14vh;}
+.tel1 img, .tel2 img {
+    margin-top: 1vh;
+    width: 4vh;
+    height: 4vh;}
+.tel1 pre, .tel2 pre {
     position: relative;
-    width: 1050px;
-    color: yellow;
-    float: right;
-    margin-bottom: -10px;}
+    display: inline;
+    font-weight: 700;
+    font-size: 3.5vh;
+    margin-top: 0.8vh;
+    float: right;}
+#face {
+    height: 5vh;
+    position: absolute;
+    top: 2vh;
+    right: 1vw;}
+#quem_somos {
+    position: absolute;
+    height: 15vh;
+    left: 10vh;
+}
+#como_chegar {}
 
-.Cabeçalho * {
-    margin: 0;}
 
-.Frame {
-    float: right;
-    border: none;
-    display: block;
+
+.menu {
     position: relative;
-    width:1050px;
-    height:1025px;
-    margin-top: 10px;}
-
-.Menu-Lateral {
-    position: relative;
-    display: block;
+    height: 73vh;
+    width: 15vw;
     float: left;
-    width: 250px;
-    margin-bottom: 20px;
-    background: lightcyan;}
+}
 
-.Menu-Lateral h2 {
-    margin-top: 2px;
-    text-align: center;
-    position: relative;
-    margin-bottom: 0;
-    border-bottom: solid 1px rgba(0, 0, 0, .5);}
 
-.Práticas {
+.itens {
     position: relative;
-    padding: 10px 10px;
+    margin-left: 15vw;
+}
+
+
+.footer {
+    position: relative;
+    height: 5vh;
     clear: both;
-    margin-bottom: 10px;}
-
-.Prática-Esquerda {
-    float: left;
-    clear:right;}
-
-.Prática-Direita {
-    float: right;
-    color: red;
-    clear: right;}
-
-.Softwares {
-    clear: left;
-    background-color: lightyellow;}
-
-.Softwares a {
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;}
-
-.Centro {
-    padding: auto;}
-
-.Artigos {padding-bottom: 20px}
-
-#Tarefas {
-    padding-bottom: 20px;
-    background-color: lightcyan;}
+}
