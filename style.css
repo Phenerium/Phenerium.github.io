@@ -1,70 +1,230 @@
 @charset "UTF-8";
-f
-* {border: 1px solid rgba(0, 0, 0, .3); padding:0; box-sizing: border-box; margin:0}
+* {fborder: 1px solid rgba(0, 0, 0, .3); box-sizing: border-box; margin:0}
+body {background: url("sprites/background.jpg");}
 
 
 .header {
-    background: url("sprites/background.jpg");
+    background-color: rgba(1, 1, 1, .6);
+    border: 3pt solid black;
+    border-radius: 15pt;
     position: relative;
-    height: 20vh;}
-.header .logo {
-    position: absolute;
-    width: 20vh;
     height: 20vh;
+    margin: 2pt;
+    color: white
+}
+.header .logo img {
+    position: absolute;
+    height: 18.7vh;
+    width: 18.7vh;
     left: 45vw;
 }
 
 .tel1 {
+    text-shadow: 2pt 2pt black;
     position: absolute;
     right: 1vw;
-    top: 8vh;
-    height: 6vh;}
+    top: 7vh;
+    height: 6vh;
+}
 .tel2 {
+    text-shadow: 2pt 2pt black;
     position: absolute;
     right: 1vw;
     height: 6vh;
-    top: 14vh;}
+    top: 13vh;
+}
 .tel1 img, .tel2 img {
     margin-top: 1vh;
     width: 4vh;
-    height: 4vh;}
+    height: 4vh;
+}
 .tel1 pre, .tel2 pre {
     position: relative;
     display: inline;
     font-weight: 700;
     font-size: 3.5vh;
     margin-top: 0.8vh;
-    float: right;}
-#face {
-    height: 5vh;
-    position: absolute;
-    top: 2vh;
-    right: 1vw;}
-#quem_somos {
-    position: absolute;
-    height: 15vh;
-    left: 10vh;
+    float: right;
 }
-#como_chegar {}
 
+.face img {
+    box-shadow: 3px 3px rgba(1, 1, 1, .6);
+    position: absolute;
+    height: 5vh;
+    top: 1vh;
+    right: 2vw;}
+.face img:hover {
+    transform: rotate(-10deg);}
 
-
-.menu {
+.botoes {
+    top: 6.7vh;
+    left: 1vw;
+    height: 12vh;
+    position: absolute;
+}
+.botoes img {
     position: relative;
-    height: 73vh;
-    width: 15vw;
+    height: 12vh;
+}
+.botoes img:hover {
+    transform: rotate(-10deg);
+}
+#como_chegar {margin-left: 2vw;}
+
+
+.menu_produtos {
+    background: url("sprites/textura_madeira.jpg");
+    background-size: cover;
+    position: relative;
+    height: 78vh;
+    width: 35vw;
+    margin: 2pt;
+    border: 3pt solid black;
+    border-radius: 15pt;
     float: left;
 }
-
-
-.itens {
-    position: relative;
-    margin-left: 15vw;
+.menu_produtos h1 {
+    display: block;
+    margin: 1vh 5vw;
+    text-align: center;
+    font-size: 20pt;
+    border-bottom: 2pt inset gray;
+    border-radius: 15pt;
+}
+.menu_produtos nav {
+    overflow: auto;
+    height: 67vh;
+    margin: 0 4pt;
+}
+.menu_produtos a {
+    background: url("sprites/textura_celulose.jpg");
+    border-bottom: 2pt inset black;
+    border-radius: 15pt;
+    text-align: center;
+    font-weight: 700;
+    padding-top: 6pt;
+    margin-top: 4pt;
+    height: 25pt;
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+.menu_produtos a:hover {
+    border-bottom: 1pt inset black;
+    border-radius: 15pt;
+    color: blue;
 }
 
 
-.footer {
+.itens_em_destaque {
+    background: url("sprites/textura_madeira.jpg") no-repeat;
+    background-size: cover;
+    border: 3pt solid black;
+    border-radius: 15pt;
     position: relative;
-    height: 5vh;
-    clear: both;
+    margin-left: 36vw;
+    margin-right: 2pt;
+    margin-top: 5pt;
+    padding-left: 1vw;
+    height: 77.8vh;
+}
+.itens_em_destaque h1, h2 {
+    text-align: center;
+    font-size: 20pt;
+}
+
+.itens {
+    background: url("sprites/textura_celulose.jpg");
+    border: 2pt groove gray;
+    border-radius: 15pt;
+    display: inline-block;
+    position: relative;
+    margin-top: 2pt;
+    margin-left: 3pt;
+    width: 18vw;
+    height: 23vh;
+}
+.itens img {
+    display: block;
+    margin: 5pt auto 0 auto;
+    width: 12vh;
+    height: 12vh;
+}
+.itens h1{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 12pt;
+    height: 6vh;
+    width: 18vw;
+}
+.itens h2 {
+    border-top: dashed 1pt red;
+    border-radius: 15pt;
+    text-align: center;
+    font-size: 12pt;
+    height: 4vh;
+    color: red;
+}
+.itens a {
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+.itens a:hover {
+    color: blue;
+}
+
+
+@media only screen and (max-width: 600px) {
+.header .logo img {
+    position: absolute;
+    height: 18.7vh;
+    width: 18.7vh;
+    left: 20vw;
+}
+
+.botoes {
+    top: 0;
+    left: 0;
+    width: 10vh;
+    height: 19vh;
+    position: absolute;
+}
+.botoes img {
+    height: 9vh;
+    margin: 0;
+}
+.botoes img:hover {
+    transform: rotate(-10deg);
+}
+#como_chegar {margin-left: 2vw;}
+
+.menu_produtos h1 {
+    margin: 1vh 3vw;
+}
+.menu_produtos nav{
+        overflow: hidden;
+}
+.menu_produtos a {
+    height: 6.8vh;
+    display: block;
+    padding-top: 0;
+    margin-top: 4pt;
+}
+
+.itens {
+    width: 25vw;
+}
+.itens img{
+    margin-top: 2pt;
+}
+.itens h1{
+    font-size: 12pt;
+    width: 25vw;
+}
+
+.maximo {
+    display: none;
+}
 }
