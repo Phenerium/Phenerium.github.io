@@ -1,5 +1,5 @@
 @charset "UTF-8";
-* {foutline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
+* {outline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
 @media only screen and (max-width: 768px){}
 
 body {
@@ -11,7 +11,7 @@ body {
     justify-content: space-between;
     background-color: rgba(1, 1, 1, .5);
     border: 1vh solid gray;
-    border-radius: 2em;
+    border-radius: 1em;
 
     width: 100vw;
     height: 20vh;
@@ -70,14 +70,14 @@ body {
 }
 .tel_cima h1, .tel_baixo h1 {
     color: white;
-    font-size: 1.5em;
+    font-size: 9px;
 
     text-shadow: 1px 1px blue;
     margin-right: .5em;
 }
 .tel_cima img, .tel_baixo img {
     height: 1.5em;
-    margin-right: .5em;
+    margin-right: .2em;
 }
 
 
