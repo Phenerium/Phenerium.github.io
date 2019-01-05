@@ -5,14 +5,16 @@
 body {
     display: flex;
     flex-direction: column;
-    background: url("sprites/background.jpg");}
+    background: url("sprites/background.jpg");
+    background-size: cover;
+}
 
 .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     background-color: rgba(1, 1, 1, .5);
-    border: 1vh solid #d8ffd5;
+    border: 1vh solid #f8fff7;
     border-radius: 1em;
 
     width: 100vw;
@@ -26,6 +28,10 @@ body {
 
     width: 60%;
     height: 100%;
+}
+.botoes_esquerda img {
+    width: 100%;
+    height: 100%
 }
 #img_logo {
     height: 100%;
@@ -51,6 +57,9 @@ body {
 #img_face {
     height: 20%;
     border-radius: .5em;
+}
+#img_face img {
+    height: 100%;
 }
 .tel_cima {
     display: flex;
@@ -87,19 +96,20 @@ body {
     margin: 0 .25em 1em .25em;
 }
 .navegar p {
-    font-size: .7em;
+    color: black;
+    font-size: 1em;
     font-weight: 900;
     text-align: center;
 }
-
 .navegar a {
     text-decoration: none;
     display: flex;
 
+    padding: .2em;
     align-items: center;
     justify-content: center;
 
-    background: #d8ffd5;
+    background: #f8fff7;
     border: .09em solid black;
     border-radius: .5em;
 }
@@ -113,22 +123,81 @@ body {
     background: url("sprites/textura_celulose.jpg");
 }
 
+#destaques {
+    border: .2vh solid black;
+    border-radius: .5em;
+    width: 25%;
+    font-weight: 800;
+    text-align: center;
 
-
+    margin: 0 1em 0 1.5em;
+    background: url("sprites/textura_celulose.jpg");
+}
 .menu_destaques {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 
+.produtos {
+    width: 46%;
+    height: 29vh;
 
+    border: .1em solid gray;
+    border-radius: 1em;
+    margin: 1vh 2% 1vh 2%;
+}
+.produtos a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding: 4%;
+
+    text-align: center;
+    text-decoration: none;
+}
+.produtos img {
+    width: 96%;
+    height: 50%;
+
+}
+.produtos h1 {
+    color: black;
+    font-size: .8em;
+}
+.produtos h2 {
+    color: darkred;
+    font-size: .9em;
+
+    padding: .4em;
+    border: .1em solid red;
+    border-radius: .5em;
+}
 
 .menu_produtos {
     display: none;
 
 }
-.footer {
-    width: 100%;
 
+
+.footer {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    height: 2vh;
+    width: 100%;
+}
+.footer a, .footer img {
+    display: flex;
+    height: 100%;
+}
+.footer p {
+    margin-right: .5em;
+    font-size: .6em;
 }
 }
 
