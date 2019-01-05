@@ -1,5 +1,5 @@
 @charset "UTF-8";
-* {outline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
+* {foutline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
 @media only screen and (max-width: 768px){}
 
 body {
@@ -8,55 +8,79 @@ body {
 .header {
     display: flex;
     flex-direction: row;
-    border: 1vh solid red;
+    justify-content: space-between;
+    background-color: rgba(1, 1, 1, .5);
+    border: 1vh solid gray;
+    border-radius: 2em;
+
     width: 100vw;
     height: 20vh;
-
 
 }
 
 .botoes_esquerda {
     display: flex;
-    flex-wrap: nowrap;
     flex-direction: row;
     align-items: flex-end;
-    justify-content: space-between;
 
-    position: relative;
-    width: 60vw;
-    height: 18vh;
-    left: 0;
-    top: 0;
+    width: 60%;
+    height: 100%;
 }
 #img_logo {
-    height: 18vh;
-    width: 25vw
+    height: 100%;
+    width: 45%
 }
 #img_quem {
-    height: 6vh;
-    width: 15vw;
+    height: 40%;
+    width: 35%;
+    padding: 0 1vw;
 }
 #img_como {
-    height: 5vh;
-    width: 10vw;
+    height: 35%;
+    width: 20%;
 }
-
 
 .botoes_direita {
-    width: 50vw;
+    width: 30%;
+    height: 100%;
     display: flex;
-    flex-wrap: nowrap;
     flex-direction: column;
+    align-items: flex-end;
     }
-.tel1 {
-    height: 7.5vh;
+#img_face {
+    height: 20%;
+    border-radius: .5em;
+}
+.tel_cima {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    margin-top: 20%;
+    height: 30%;
+    width: 100%;
+}
+.tel_baixo {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    height: 30%;
+    width: 100%;
+}
+.tel_cima h1, .tel_baixo h1 {
+    color: white;
+    font-size: 1.5em;
+
+    text-shadow: 1px 1px blue;
+    margin-right: .5em;
+}
+.tel_cima img, .tel_baixo img {
+    height: 1.5em;
+    margin-right: .5em;
 }
 
-#img_face {
-    width: 3vh;
-    height: 3vh;
-    align-self: flex-end;
-}
+
 
 
 .secao {
