@@ -26,7 +26,7 @@ body {
     flex-direction: row;
     align-items: flex-end;
 
-    width: 60%;
+    width: 70%;
     height: 100%;
 }
 .botoes_esquerda img {
@@ -35,16 +35,18 @@ body {
 }
 #img_logo {
     height: 100%;
-    width: 45%
+    width: 40%
 }
 #img_quem {
-    height: 40%;
     width: 35%;
+    height: 40%;
     padding: 0 1vw;
+    margin-bottom: 2px;
 }
 #img_como {
-    height: 35%;
-    width: 20%;
+    width: 25%;
+    height: 40%;
+    margin-bottom: 2px;
 }
 
 .botoes_direita {
@@ -55,19 +57,20 @@ body {
     align-items: flex-end;
     }
 #img_face {
-    height: 20%;
+    height: 10%;
     border-radius: .5em;
 }
 #img_face img {
+    display: block;
     height: 100%;
 }
 .tel_cima {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
+    margin-top: 11vh;
 
-    margin-top: 20%;
-    height: 30%;
+    height: 15%;
     width: 100%;
 }
 .tel_baixo {
@@ -75,7 +78,7 @@ body {
     align-items: center;
     flex-direction: row-reverse;
 
-    height: 30%;
+    height: 15%;
     width: 100%;
 }
 .tel_cima h1, .tel_baixo h1 {
@@ -86,7 +89,7 @@ body {
     margin-right: .5em
 }
 .tel_cima img, .tel_baixo img {
-    height: 1em;
+    height: .7em;
     margin-right: .2em;
 }
 
@@ -131,10 +134,11 @@ body {
     text-align: center;
 
     margin: 0 1em 0 1.5em;
-    background: url("sprites/textura_celulose.jpg");
+    background: #f8fff7;
 }
 .menu_destaques {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -142,7 +146,7 @@ body {
 .produtos {
     width: 46%;
     height: 29vh;
-
+background-image: url("sprites/textura_madeira.jpg");
     border: .1em solid gray;
     border-radius: 1em;
     margin: 1vh 2% 1vh 2%;
@@ -170,12 +174,13 @@ body {
     font-size: .8em;
 }
 .produtos h2 {
-    color: darkred;
+    color: red;
     font-size: .9em;
 
     padding: .4em;
-    border: .1em solid red;
+    border: .1em solid black;
     border-radius: .5em;
+    background-color: whitesmoke;
 }
 
 .menu_produtos {
@@ -188,6 +193,8 @@ body {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
+    border-top: .1em dotted gray;
+    margin-top: .1em;
     height: 2vh;
     width: 100%;
 }
