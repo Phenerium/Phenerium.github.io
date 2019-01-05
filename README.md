@@ -1,1 +1,1 @@
-Website destinado à vende de muambas
+Website destinado à venda de muambas
