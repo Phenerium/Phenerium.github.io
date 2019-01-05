@@ -49,6 +49,7 @@ body {
     }
 #img_face {
     height: 20%;
+    width: 100%;
     border-radius: .5em;
 }
 .tel_cima {
