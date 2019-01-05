@@ -57,7 +57,7 @@ body {
     align-items: flex-end;
     }
 #img_face {
-    height: 10%;
+    height: 20%;
     border-radius: .5em;
 }
 #img_face img {
@@ -68,7 +68,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
-    margin-top: 11vh;
+    margin-top: 9.5vh;
 
     height: 15%;
     width: 100%;
