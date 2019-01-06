@@ -33,7 +33,7 @@ body {
     display: flex;
     flex-direction: row;
 
-    width: 60%;
+    width: 65%;
     height: 100%;
 }
 
@@ -43,12 +43,11 @@ body {
 
 .info {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-around;
-    flex-direction: column-reverse;
-
-    width: 10.7em;
-    padding: 0 .5em 0 .5em;
+    flex-direction: row;
+    padding-bottom: .2em;
+    width: 8.7em;
 
 }
 .imagens_quem {
@@ -66,7 +65,7 @@ body {
     flex-direction: column;
 
     padding: .2em .2em 0 0;
-    width: 40%;
+    width: 35%;
     height: 100%;
 }
 .container_face {
@@ -94,6 +93,7 @@ body {
 }
 .whats {
     height: 60%;
+    margin-right: .3em;
 }
 
 
@@ -137,8 +137,8 @@ body {
 
     margin-bottom: 1em;
 
+    background: url("sprites/textura_celulose.jpg");
     background-size: cover;
-    background: url("sprites/textura_celulose.jpg") no-repeat;
 
     border-radius: 1em;
     border: .05em solid black;
