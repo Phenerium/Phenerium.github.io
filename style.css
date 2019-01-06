@@ -1,214 +1,236 @@
 @charset "UTF-8";
-* {xoutline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
-
-
-@media only screen and (min-width: 768px){}
-
-@media only screen and (max-width: 768px){
+* {foutline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
 body {
-    display: flex;
-    flex-direction: column;
-    background: url("sprites/background.jpg");
-    background-size: cover;
-}
+    background-image: url("sprites/background.jpg");
+    background-size: cover;}
+@media only screen and (min-width: 768px){.mobile {display: none}
+}  /* Versão Desktop */
 
+
+
+
+
+@media only screen and (max-width: 768px){.desktop {
+    display: none
+} /* Versão Mobile */
+
+/* Estilo do cabeçario */
 .header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: rgba(1, 1, 1, .5);
-    border: 1vh solid #f8fff7;
-    border-radius: 1em;
+    height: 6.1em;
 
-    width: 100vw;
-    height: 20vh;
+    border-radius: .5em;
+    border-bottom: .1em solid whitesmoke;
+    background-color: rgba(1, 1, 1, .7);
+}
+.imagens_esquerda img, .imagens_direita img {
+    display: block;
 }
 
-.botoes_esquerda {
+
+/* Estilo das imagens da Esquerda */
+.imagens_esquerda {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
 
-    width: 70%;
+    width: 60%;
     height: 100%;
-}
-.botoes_esquerda img {
-    width: 100%;
-    height: 100%
-}
-#img_logo {
-    height: 100%;
-    width: 40%
-}
-#img_quem {
-    width: 35%;
-    height: 40%;
-    padding: 0 1vw;
-    margin-bottom: 2px;
-}
-#img_como {
-    width: 25%;
-    height: 40%;
-    margin-bottom: 2px;
 }
 
-.botoes_direita {
-    width: 30%;
-    height: 100%;
+.imagens_logo {
+    height: 6em;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column-reverse;
+
+    width: 10.7em;
+    padding: 0 .5em 0 .5em;
+
+}
+.imagens_quem {
+    height: 2.8em;
+    width: 4em;
+}
+.imagens_como {
+    width: 2.9em;
+    height: 2.5em;
+}
+
+/* Estilo das imagens da Direita */
+.imagens_direita {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    }
-#img_face {
-    height: 20%;
-    border-radius: .5em;
-}
-#img_face img {
-    display: block;
+
+    padding: .2em .2em 0 0;
+    width: 40%;
     height: 100%;
 }
-.tel_cima {
+.container_face {
     display: flex;
-    align-items: center;
     flex-direction: row-reverse;
-    margin-top: 9.5vh;
-
-    height: 15%;
-    width: 100%;
+    height: 1.25em;
+    margin-bottom: 2.5em;
 }
-.tel_baixo {
+.container_face img {
+    display: block;
+    height: 1.25em;
+    width: 1.25em;
+}
+.tel_cima, .tel_baixo {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
 
-    height: 15%;
-    width: 100%;
+    height: 22%;
 }
 .tel_cima h1, .tel_baixo h1 {
     color: white;
-    font-size: .6em;
-
     text-shadow: 1px 1px blue;
-    margin-right: .5em
+    font-size: .8em;
 }
-.tel_cima img, .tel_baixo img {
-    height: .7em;
-    margin-right: .2em;
+.whats {
+    height: 60%;
 }
 
-.navegar {
-    display: flex;
-    justify-content: space-around;
-    margin: 0 .25em 1em .25em;
-}
-.navegar p {
-    color: black;
-    font-size: 1em;
-    font-weight: 900;
-    text-align: center;
-}
-.navegar a {
+
+/* Removedor de estilo de links */
+.categorias a, .footer a, .produtos a {
+    color: inherit;
     text-decoration: none;
+}
+
+/* Margem nativa da folha */
+.section, .nav {
+    margin: 0 .4em 0 .4em;
+}
+
+/* Divisória do botão de categorias */
+.nav {
     display: flex;
-
-    padding: .2em;
-    align-items: center;
-    justify-content: center;
-
-    background: #f8fff7;
-    border: .09em solid black;
-    border-radius: .5em;
+    margin-top: 1.5em;
 }
 
-.secao {
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: .5em;
-    border: .2vh solid black;
-    margin: 0 1em 0.5em 1em;
-    background: url("sprites/textura_celulose.jpg");
-}
-.agagar {
-    display: none
-}
+/* Estilo do botão que abre as categorias */
+.categorias {
+    padding: .3em;
 
-#destaques {
-    border: .2vh solid black;
-    border-radius: .5em;
-    width: 25%;
+    background-size: cover;
+    background: url("sprites/textura_celulose.jpg") no-repeat;
+
+    border-radius: 1em;
+    border: .05em solid black;
+
+    color: black;
     font-weight: 800;
-    text-align: center;
-
-    margin: 0 1em 0 1.5em;
-    background: #f8fff7;
 }
-.menu_destaques {
+
+/* Parâmetros da folha principal */
+.section {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-bottom: 1em;
+
+    background-size: cover;
+    background: url("sprites/textura_celulose.jpg") no-repeat;
+
+    border-radius: 1em;
+    border: .05em solid black;
 }
 
+/* Definições dos itens em destaque */
+.destaques {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Estilização da mensagem guia */
+.destaques > h1 {
+    font-size: 1.2em;
+
+    text-align: center;
+    padding: .4em;
+
+    width: 100%;
+    border-radius: 1em;
+    border-bottom: .2em inset gray;
+}
+
+/* Definição do estilo dos produtos */
 .produtos {
-    width: 48%;
-    height: 29vh;
+    width: 46%;
+    height: 41vh;
+
+    background-size: cover;
     background-image: url("sprites/textura_madeira.jpg");
+
+    margin: .8em 0 0 0;
     border: .1em solid gray;
     border-radius: 1em;
-    margin: 1vh 1% 1vh 1%;
 }
 .produtos a {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-
     width: 100%;
     height: 100%;
-    padding: 4%;
 
-    text-align: center;
-    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 .produtos img {
-    width: 96%;
-    height: 50%;
+    display: block;
+    width: 34vw;
+    height: 34vw;
+    border: 1px solid black;
+    border-radius: 1em;
 
 }
-.produtos h1 {
-    color: black;
+.produtos h1{
     font-size: .8em;
+    text-align: center;
+
+    padding: 0 .2em;
+
 }
 .produtos h2 {
     color: red;
-    font-size: .9em;
+    font-size: 1em;
+    text-align: center;
 
     padding: .4em;
-    border: .1em solid black;
     border-radius: .5em;
+    border: .05em solid black;
     background-color: whitesmoke;
 }
 
-.menu_produtos {
-    display: none;
-}
-
+/* Estilo do pé da página */
 .footer {
     display: flex;
-    align-items: center;
     flex-direction: row-reverse;
-    border-top: .1em dotted gray;
-    margin-top: .1em;
-    height: 2vh;
+    align-items: center;
     width: 100%;
+
+
+    padding: .2em;
+    margin-top: .5em;
+    border-radius: 1em;
+    border: .05em dotted black;
 }
-.footer a, .footer img {
-    display: flex;
-    height: 100%;
+.footer img {
+    display: block;
+
+    height: 1em;
+    border-radius: 1em;
 }
 .footer p {
-    margin-right: .5em;
-    font-size: .6em;
+    margin-right: .2em;
+    font-size: .5em;
 }
 }
-
