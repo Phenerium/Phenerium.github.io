@@ -1,7 +1,10 @@
 @charset "UTF-8";
-* {foutline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
-@media only screen and (max-width: 768px){
+* {xoutline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
 
+
+@media only screen and (min-width: 768px){}
+
+@media only screen and (max-width: 768px){
 body {
     display: flex;
     flex-direction: column;
@@ -125,6 +128,9 @@ body {
     margin: 0 1em 0.5em 1em;
     background: url("sprites/textura_celulose.jpg");
 }
+.agagar {
+    display: none
+}
 
 #destaques {
     border: .2vh solid black;
@@ -144,12 +150,12 @@ body {
 }
 
 .produtos {
-    width: 46%;
+    width: 48%;
     height: 29vh;
-background-image: url("sprites/textura_madeira.jpg");
+    background-image: url("sprites/textura_madeira.jpg");
     border: .1em solid gray;
     border-radius: 1em;
-    margin: 1vh 2% 1vh 2%;
+    margin: 1vh 1% 1vh 1%;
 }
 .produtos a {
     display: flex;
@@ -185,9 +191,7 @@ background-image: url("sprites/textura_madeira.jpg");
 
 .menu_produtos {
     display: none;
-
 }
-
 
 .footer {
     display: flex;
