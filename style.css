@@ -1,18 +1,240 @@
 @charset "UTF-8";
-* {foutline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
+
 body {
     background-image: url("sprites/background.jpg");
     background-size: cover;}
-@media only screen and (min-width: 768px){.mobile {display: none}
-}  /* Versão Desktop */
+
+/* Versão Desktop */
+@media only screen and (min-width: 768px){
+* {outline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
+
+.mobile {display: none}
+/* Estilo do cabeçario */
+
+.header {
+    display: flex;
+    height: 6.1em;
+
+    border-radius: .5em;
+    border-bottom: .1em solid whitesmoke;
+    fbackground-color: rgba(1, 1, 1, .7);
+}
+.imagens_esquerda img, .imagens_direita img {
+    display: block;
+}
+
+
+/* Estilo das imagens da Esquerda */
+.imagens_esquerda {
+    display: flex;
+    flex-direction: row-reverse;
+
+    width: 65%;
+    height: 100%;
+}
+.imagens_logo {
+    height: 6em;
+}
+.info {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: row;
+    padding-bottom: .2em;
+    width: 8.7em;
+
+}
+.imagens_quem {
+    height: 2.8em;
+    width: 4em;
+}
+.imagens_como {
+    width: 2.9em;
+    height: 2.5em;
+}
+
+/* Estilo das imagens da Direita */
+.imagens_direita {
+    display: flex;
+    flex-direction: column;
+
+    width: 35%;
+    height: 100%;
+}
+.container_face {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 1.25em;
+    margin-bottom: 2.5em;
+}
+.container_face img {
+    display: block;
+    height: 1.25em;
+    width: 1.25em;
+}
+.tel_cima, .tel_baixo {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    height: 22%;
+}
+.tel_cima h1, .tel_baixo h1 {
+    color: white;
+    text-shadow: 1px 1px blue;
+    font-size: .8em;
+}
+.whats {
+    height: 60%;
+    margin-right: .3em;
+}
+
+
+/* Removedor de estilo de links */
+.categorias a, .footer a, .produtos a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Margem nativa da folha */
+.section, .nav {
+    margin: 0 .4em 0 .4em;
+}
+
+/* Divisória do botão de categorias */
+.nav {
+    display: flex;
+    margin-top: 1.5em;
+}
+
+/* Estilo do botão que abre as categorias */
+.categorias {
+    padding: .3em;
+
+    background-size: cover;
+    background: url("sprites/textura_celulose.jpg") no-repeat;
+
+    border-radius: 1em;
+    border: .05em solid black;
+
+    color: black;
+    font-weight: 800;
+}
+
+/* Parâmetros da folha principal */
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-bottom: 1em;
+
+    background: url("sprites/textura_celulose.jpg");
+    background-size: cover;
+
+    border-radius: 1em;
+    border: .05em solid black;
+}
+
+/* Definições dos itens em destaque */
+.destaques {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Estilização da mensagem guia */
+.destaques > h1 {
+    font-size: 1.2em;
+
+    text-align: center;
+    padding: .4em;
+
+    width: 100%;
+    border-radius: 1em;
+    border-bottom: .2em inset gray;
+}
+
+/* Definição do estilo dos produtos */
+.produtos {
+    width: 46%;
+    height: 41vh;
+
+    background-size: cover;
+    background-image: url("sprites/textura_madeira.jpg");
+
+    margin: .8em 0 0 0;
+    border: .1em solid gray;
+    border-radius: 1em;
+}
+.produtos a {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.produtos img {
+    display: block;
+    width: 34vw;
+    height: 34vw;
+    border: 1px solid black;
+    border-radius: 1em;
+
+}
+.produtos h1{
+    font-size: .8em;
+    text-align: center;
+
+    padding: 0 .2em;
+
+}
+.produtos h2 {
+    color: red;
+    font-size: 1em;
+    text-align: center;
+
+    padding: .4em;
+    border-radius: .5em;
+    border: .05em solid black;
+    background-color: whitesmoke;
+}
+
+/* Estilo do pé da página */
+.footer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+
+
+    padding: .2em;
+    margin-top: .5em;
+    border-radius: 1em;
+    border: .05em dotted black;
+}
+.footer img {
+    display: block;
+
+    height: 1em;
+    border-radius: 1em;
+}
+.footer p {
+    margin-right: .2em;
+    font-size: .5em;
+}
+
+}
 
 
 
 
-
-@media only screen and (max-width: 768px){.desktop {
-    display: none
-} /* Versão Mobile */
+/* Versão Mobile */
+@media only screen and (max-width: 768px){
+.desktop {display: none}
 
 /* Estilo do cabeçario */
 .header {
@@ -36,11 +258,9 @@ body {
     width: 65%;
     height: 100%;
 }
-
 .imagens_logo {
     height: 6em;
 }
-
 .info {
     display: flex;
     align-items: flex-end;
@@ -233,4 +453,6 @@ body {
     margin-right: .2em;
     font-size: .5em;
 }
+
 }
+
