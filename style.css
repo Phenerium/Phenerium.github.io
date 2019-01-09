@@ -1,477 +1,235 @@
-@charset "UTF-8";
-* {foutline: 1px solid rgba(0, 0, 0, .8); box-sizing: border-box; margin: 0}
+* {foutline: 1px solid rgba(0, 0, 0, .3)}
+
 body {
-    background-image: url("sprites/background.jpg");
-    background-size: cover;}
-/* Versão Desktop */
+    display: flex;
+    flex-direction: column;
 
-@media only screen and (min-width: 768px){.mobile {display: none}
+    margin: 20px;
+    background: url("sprites/background.png") repeat-x;
+}
 
 .header {
-    display: flex;
-    justify-content: space-between;
-
-    height: 16vh;
-    border-radius: 1em;
-    border-bottom: 1vh solid white;
-    background-color: rgba(1, 1, 1, .7);
-}
-
-/* Imagens da Esquerda */
-.imagens_esquerda {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-
-    width: 33%;
-    padding-bottom: 1vh;
-}
-.imagens_esquerda img {
-    display: block
-}
-.img_como {
-    height: 10vh;
-}
-.img_quem {
-    height: 12vh;
-}
-.img_logo {
     height: 15vh;
-}
 
-/* Imagens da Direita */
-.imagens_direita {
     display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    padding: 0 1vw 1vh 0;
-
-    width: 33%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vw 0 2vw;
 }
-.img_facebook {
+.logo {
     display: block;
-    height: 4vh;
-    width: 4vh;
-}
-.imagens_direita img {
-    margin-right: .3em;
-    height: 3.5vh;
-}
-.imagens_direita h1 {
-    color: whitesmoke;
-    text-shadow: 1px 1px blue;
-    font-size: 1.2em;
-}
-.tel_cima {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
 
-    margin-top: 3vh;
-    height: 4vh;
-
-}
-.tel_baixo {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-
-    height: 4vh;
+    height: 15vh;
+    min-width: 15vh;
+    border-radius: 100%;
+    border: 2px solid white;
 }
 
-
-/* Removedor de estilo de links */
-.categorias a, .footer a, .produtos a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/* Parâmetros da folha principal */
-.section {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-
-
-    background: url("sprites/textura_celulose.jpg");
-    background-size: cover;
-    margin: 2em 2em 2em 2em;
-
-    border-radius: 1em;
-    border: .05em solid black;
-}
-
-/* Definição da barra de categorias */
-.classes {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 25%;
-}
-.classes > h1 {
-    font-size: 1.2em;
-
-    text-align: center;
-    padding: .4em;
-
-    margin-top: .3em;
-    border-radius: 1em;
-    border-bottom: .2em inset gray;
-    background-color: whitesmoke;
-}
-.categorias_itens {
-    display: flex;
-    flex-direction: column;
-
-    width: 90%;
-    margin-top: 1em;
-    border: .2em outset gray;
-}
-.categorias_itens a {
-
-    text-decoration: none;
-    text-align: center;
-
-    color: black;
-    font-weight: 700;
-
-    margin: .3em;
-    padding: .2em;
-    border-radius: 5%;
-    border: .1em solid gray;
-    background-color: whitesmoke;
-}
-.categorias_itens a:hover {
-    background-color: gray;
-}
-
-/* Definições da pagina da direita */
-.destaques {
-    width: 75%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    flex-direction: column;
-}
-.destaques > h1 {
-    font-size: 1.2em;
-
-    text-align: center;
-    padding: .4em;
-
-    width: 40%;
-    border-radius: 1em;
-    margin-top: .3em;
-    border-bottom: .2em inset gray;
-    background-color: whitesmoke;
-}
-.pagina_itens {
-    width: 100%;
+.content {
+    max-width: 70%;
 
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: space-around;
-
-    border-left: .1em solid gray;
-}
-
-
-/* Definição do estilo dos produtos */
-.produtos {
-    width: 31%;
-    height: 41vh;
-
-    background-size: cover;
-    background-image: url("sprites/textura_madeira.jpg");
-
-    margin: 2% 1% 0 1%;
-    border: .1em solid gray;
-    border-radius: 1em;
-}
-.produtos a {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: space-around;
-}
-.produtos img {
-    display: block;
-    width: 8em;
-    height: 8em;
-    border: 1px solid black;
-    border-radius: 1em;
-
-}
-.produtos h1 {
-    font-size: .8em;
-    text-align: center;
-
-    padding: 0 .2em;
-
-}
-.produtos h2 {
-    color: red;
-    font-size: 1em;
-    text-align: center;
-
-    padding: .4em;
-    border-radius: .5em;
-    border: .05em solid black;
-    background-color: whitesmoke;
-}
-
-/* Estilo do pé da página */
-.footer {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    width: 100%;
-
-    padding: .2em;
-    margin-top: .5em;
-    border-radius: 1em;
-    border: .05em dotted black;
-    background-color: whitesmoke;
-}
-.footer img {
-    display: block;
-
-    height: 1em;
-    border-radius: 1em;
-}
-.footer p {
-    margin-right: .2em;
-    font-size: .5em;
-}
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Versão Mobile */
-@media only screen and (max-width: 768px){
-.desktop {display: none}
-
-/* Estilo do cabeçario */
-.header {
-    display: flex;
-    height: 6.1em;
-
-    border-radius: .5em;
-    border-bottom: .1em solid whitesmoke;
-    background-color: rgba(1, 1, 1, .7);
-}
-.imagens_esquerda img, .imagens_direita img {
-    display: block;
-}
-
-
-/* Estilo das imagens da Esquerda */
-.imagens_esquerda {
-    display: flex;
-    flex-direction: row;
-
-    width: 65%;
-    height: 100%;
-}
-.imagens_logo {
-    height: 6em;
 }
 .info {
     display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    flex-direction: row;
-    padding-bottom: .2em;
-    width: 8.7em;
-
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
-.imagens_quem {
-    height: 2.8em;
-    width: 4em;
-}
-.imagens_como {
-    width: 2.9em;
-    height: 2.5em;
-}
-
-/* Estilo das imagens da Direita */
-.imagens_direita {
-    display: flex;
-    flex-direction: column;
-
-    padding: .2em .2em 0 0;
-    width: 35%;
-    height: 100%;
-}
-.container_face {
-    display: flex;
-    flex-direction: row-reverse;
-    height: 1.25em;
-    margin-bottom: 2.5em;
-}
-.container_face img {
-    display: block;
-    height: 1.25em;
-    width: 1.25em;
-}
-.tel_cima, .tel_baixo {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-
-    height: 22%;
-}
-.tel_cima h1, .tel_baixo h1 {
-    color: white;
-    text-shadow: 1px 1px blue;
-    font-size: .8em;
-}
-.whats {
-    height: 60%;
-    margin-right: .3em;
-}
-
-
-/* Removedor de estilo de links */
-.categorias a, .footer a, .produtos a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/* Margem nativa da folha */
-.section, .nav {
-    margin: 0 .4em 0 .4em;
-}
-
-/* Divisória do botão de categorias */
-.nav {
-    display: flex;
-    margin-top: 1.5em;
-}
-
-/* Estilo do botão que abre as categorias */
-.categorias {
-    padding: .3em;
-
-
-    border-radius: 1em;
-    border: .05em solid black;
-    background-color: whitesmoke;
+.info > a {
+    padding: 4px;
+    margin: 0 2px;
 
     color: black;
-    font-weight: 800;
+    font-size: 2vh;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+
+    border-radius: 10%;
+    border: 2px solid #e8f5fd;
+    background-color: #4ab3f4;
+}
+.info a:hover {
+    color: white;
+    background-color: #0084ff;
 }
 
-/* Parâmetros da folha principal */
+.telefones {
+    font-size: 2vh;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.telefones h1 {
+    color: white;
+    font-size: 2vh;
+    font-weight: 700;
+    text-shadow: 1px 1px black;
+
+    background-color: rgba(1, 1, 1, .5);
+}
+.telefones > img {
+    width: 2.5vh;
+    height: 2.5vh;
+
+    margin: 0 3px;
+    border-radius: 100%;
+}
+.telefones a {
+    display: block;
+}
+.facebook {
+    width: 2.5vh;
+    height: 2.5vh;
+    display: block;
+}
+.telefones a:hover .facebook {
+    border-radius: 0;
+}
+
+
 .section {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
+    align-items: flex-start;
 
-    margin-bottom: 1em;
+    margin: 1vh 1vw 1vh 1vw;
 
-    background: url("sprites/textura_celulose.jpg");
-    background-size: cover;
-
-    border-radius: 1em;
-    border: .05em solid black;
+    border-radius: 8px;
+    background-color: #f5f6f7;
 }
 
-/* Definições dos itens em destaque */
-.destaques {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+.menu {
+    top:0;
+    position: sticky;
 
-/* Estilização da mensagem guia */
-.destaques > h1 {
-    font-size: 1.2em;
-
-    text-align: center;
-    padding: .4em;
-
-    width: 55%;
-    border-radius: 1em;
-    margin-top: .3em;
-    border-bottom: .2em inset gray;
-    background-color: whitesmoke;
-}
-
-/* Definição do estilo dos produtos */
-.produtos {
-    width: 46%;
-    height: 41vh;
-
-    background-size: cover;
-    background-image: url("sprites/textura_madeira.jpg");
-
-    margin: .8em 0 0 0;
-    border: .1em solid gray;
-    border-radius: 1em;
-}
-.produtos a {
-    width: 100%;
-    height: 100%;
-
+    min-width: 20%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    padding: 3vh 0;
+
+    border-radius: 10px;
+    background-color: #b1d6ff;
 }
-.produtos img {
+.menu h3 {
+    color: darkblue;
+    text-align: center;
+
+    margin-top: 0;
+    padding-top: 0;
+}
+.menu a {
     display: block;
-    width: 8em;
-    height: 8em;
-    border: 1px solid black;
-    border-radius: 1em;
-
-}
-.produtos h1 {
-    font-size: .8em;
+    font-weight: 500;
     text-align: center;
 
-    padding: 0 .2em;
+    color: black;
+    text-decoration: none;
 
+    padding: 3px 5px;
+    border-radius: 10px;
+    border-top: 2px solid white;
 }
-.produtos h2 {
-    color: red;
-    font-size: 1em;
-    text-align: center;
-
-    padding: .4em;
-    border-radius: .5em;
-    border: .05em solid black;
-    background-color: whitesmoke;
+.menu a:hover {
+    background-color: white;
 }
 
-/* Estilo do pé da página */
-.footer {
+#destaques {
+    color: white;
+    background-color: #0084ff;
+}
+#soldadores {}
+#fontes {}
+#carregadores {}
+
+.expo {
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
+    flex-direction: column;
+}
+.expo > h2 {
+    margin: 10px 0;
+    padding: 5px;
+
+    color: darkblue;
+    text-align: center;
+
+    border-radius: 15%;
+    border: 2px solid black;
+    background-color: #f5f6f7;
+}
+
+.itens {
     width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.seletor {
+    width: 30%;
+    padding: 10px 0;
+
+    color: black;
+    text-decoration: none;
+
+    margin: 1vh 1%;
+    border-radius: 15%;
+    border: 1px solid #1da1f2;
+    background-color: #e8f5fd;
+}
+.seletor:hover {
+    background-color: lightblue;
+}
+
+.produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.produto img {
+    display: block;
+    width: 80%;
+    max-width: 90%;
+
+    border-radius: 15%;
+    border: 1px solid darkblue;
+}
+.produto h1, .produto h2 {
+    text-align: center;
+
+    padding: 4px;
+    margin: 10px 0;
+}
+.produto h1 {
+    color: red;
+    font-size: 14px;
+
+    border-radius: 20%;
+    background-color: #f5f6f7;
+    border: 1px solid darkblue;
+}
+.produto h2 {
+    font-size: 14px;
+
+    border-radius: 20%;
+    background-color: #f5f6f7;
+    border: 1px solid darkblue;
+}
+
+.footer {
+    width: 100%;
+    height: 4vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
 
     padding: .2em;
     margin-top: .5em;
@@ -480,14 +238,33 @@ body {
     background-color: whitesmoke;
 }
 .footer img {
+    height: 2vh;
     display: block;
-
-    height: 1em;
-    border-radius: 1em;
+}
+.footer a {
+    text-decoration: none;
 }
 .footer p {
-    margin-right: .2em;
-    font-size: .5em;
+    font-size: 2vh;
+    color: #0084ff;
+
+    margin: 0 3px;
+}
+
+
+
+@media only screen and (max-width: 420px){
+
+.section {
+    flex-direction: column;
+}
+.menu {
+    position: static;
+    width: 100%;
+    max-width: none;
+}
+.seletor {
+    width: 40%;
 }
 
 }
