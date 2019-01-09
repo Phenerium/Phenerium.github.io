@@ -131,8 +131,10 @@ body {
     padding: 3px 5px;
     border-radius: 10px;
     border-top: 2px solid white;
+    border-right: 3px solid #b1d6ff;
 }
 .menu a:hover {
+    border-right: 3px solid #0084ff;
     background-color: white;
 }
 
