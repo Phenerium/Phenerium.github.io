@@ -19,8 +19,8 @@ body {
 .logo {
     display: block;
 
-    height: 15vh;
-    min-width: 15vh;
+    height: 14vh;
+    min-width: 14vh;
     border-radius: 100%;
     border: 2px solid white;
 }
