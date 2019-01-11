@@ -6,6 +6,7 @@ body {
 
     margin: 20px;
     background: url("sprites/background.png") repeat-x;
+    background-size: cover;
 }
 
 
