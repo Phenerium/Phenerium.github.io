@@ -1,1 +1,1 @@
-Website destinado à venda de muambas
+Website destinado à divulgação do nosso negócio. Eletrônica Schossler - 2019.

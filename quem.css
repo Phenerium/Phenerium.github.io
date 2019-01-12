@@ -1,4 +1,4 @@
-* {foutline: 1px solid rgba(0, 0, 0, .3)}
+* {xoutline: 1px solid rgba(0, 0, 0, .3)}
 
 
 .section {
@@ -16,6 +16,7 @@
 
     background-color: #e8f5fd;
 }
+
 
 .photo {
     width: 75vw;
