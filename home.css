@@ -1,0 +1,155 @@
+.menu {
+    top:0;
+    position: sticky;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 3vh 0;
+    min-width: 20%;
+
+    border-radius: 10px;
+    background-color: #b1d6ff;
+}
+.menu h3 {
+    color: darkblue;
+    text-align: center;
+
+    margin-top: 0;
+    padding-top: 0;
+}
+.menu a {
+    display: block;
+    font-weight: 500;
+    text-align: center;
+
+    color: black;
+    text-decoration: none;
+
+    padding: 3px 5px;
+    border-radius: 10px;
+    border-top: 2px solid white;
+    border-right: 3px solid #b1d6ff;
+}
+.menu a:hover {
+    border-right: 3px solid #0084ff;
+    background-color: white;
+}
+
+#destaques {
+    color: white;
+    border-right: 3px solid #0084ff;
+    background-color: #0084ff;
+}
+#soldadores {}
+#fontes {}
+#carregadores {}
+
+.expo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.expo > h2 {
+    padding: 5px;
+    margin: 10px 0;
+
+    color: darkblue;
+    text-align: center;
+
+    border-radius: 15%;
+    background-color: #dde7ff;
+}
+
+.itens {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.seletor {
+    width: 30%;
+    padding: 10px 0;
+
+    color: black;
+    text-decoration: none;
+
+    margin: 1vh 1%;
+    border-radius: 15%;
+    border: 1px solid #1da1f2;
+    background-color: #e8f5fd;
+
+    transition: background-color .5s;
+}
+.seletor:hover {
+    background-color: lightblue;
+}
+.seletor:hover h1, .seletor:hover h2 {
+    border: 1px solid #1da1f2;
+}
+
+.produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.produto img {
+    display: block;
+    width: 80%;
+    max-width: 90%;
+
+    border-radius: 15%;
+
+}
+.produto h1, .produto h2 {
+    text-align: center;
+
+    padding: 4px;
+    margin: 10px 0;
+}
+.produto h1 {
+    color: red;
+    font-size: 18px;
+
+    border-radius: 20%;
+    background-color: #f5f6f7;
+    border: 1px solid lightblue;
+}
+.produto h2 {
+    font-size: 14px;
+
+    border-radius: 20%;
+    background-color: #f5f6f7;
+    border: 1px solid lightblue;
+}
+
+@media only screen and (max-width: 420px){
+
+.section {
+    flex-direction: column;
+}
+
+.menu {
+    position: static;
+    width: 100%;
+    max-width: none;
+}
+
+.seletor {
+    width: 40%;
+}
+
+.designer {
+    flex-direction: column;
+}
+.designer p {
+    text-align: center;
+}
+.footer p {
+    font-size: 10px;
+}
+}
