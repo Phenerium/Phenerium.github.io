@@ -13,43 +13,69 @@
     <script src="script.js"></script>
     <title> Eletrônica Schossler </title>
 </head>
-<body>
-    <header>
-        <a href="index.html" title="Home Page" style="border-radius: 100%"><img src="sprites/logo.png" style="width: 18vh; height: 18vh; border-radius: inherit"></a>
+<body class="aparecedor">
+    <header class="header">
+        <a href="index.html"><img class="logo" src="sprites/logo.png" title="Eletrônica Schossler"></a>
 
-        <div class="pesquisa">
-            <input type="text" id="texto" onkeydown="entrar(event)" placeholder="Pesquise produtos em nossa loja">
-            <button id="botao"> <img class="button_icons" src="sprites/lupa.png"> </button>
-        </div>
-
-        <div class="info">
-            <a href="#" style="grid-column: 1 / 2"> <p style="margin-right: 2px" class="info_button"> Quem Somos </p> </a>
-            <a href="#" style="grid-column: 2 / 3"> <p class="info_button"> Como Chegar </p> </a>
-            <p class="info_dados" style="grid-column: 2 / 3" title="Gabriel"> (51) 99184-4178 </p>
-            <p class="info_dados" style="grid-column: 2 / 3" title="Elton"> (51) 99886-6313 </p>
-            <p class="info_dados" style="grid-column: 1 / 3" title="Nosso e-mail"> eletronicaschossler@gmail.com </p>
-            <div class="icons">
-                <img src="sprites/whatsapp.png" title="Contate-nos pelo whatsapp" style="transform: rotateZ(225deg)">
-                <a href="https://www.facebook.com/eletronicaschossler" title="Nossa página no facebook" target="_blank"><img src="sprites/facebook.png" style="margin-right: 5px"></a>
+        <div class="content">
+            <div class="info">
+                <a href="informativo/quem.html" title="Saiba mais sobre a gente"> Quem Somos </a>
+                <a href="informativo/como.html" title="Descubra como chegar até nós"> Como Chegar </a>
             </div>
+
+            <div class="telefones">
+                <h1> (51) 99184-4178 <br> (51) 99886-6313 </h1>
+                <img title="Contate-nos pelo whatsapp" src="sprites/whatsapp.png">
+                <a target="_blank" href="https://www.facebook.com/eletronicaschossler/"><img title="Acesse o nosso facebook" class="facebook" src="sprites/facebook.png"></a>
+            </div>
+            <p>eletronicaschossler@gmail.com</p>
         </div>
     </header>
 
-    <section>
-        teste
+    <section class="section">
+
+        <div class="menu">
+            <h3> Categorias </h3>
+            <a href="#" id="destaques" title="Confira nossos itens em destaque"> Destaques </a>
+            <a href="#" id="soldadores" title="Conheça nossos produtos, feitos à mão"> Soldadores </a>
+            <a href="#" id="fontes" title="Fontes de qualidade, devidamente testadas"> Fontes de Alimentação </a>
+            <a href="#" id="carregadores" title="Confira os nossos carregadores artesanais"> Carregadores de Baterias </a>
+        </div>
+
+        <div class="expo">
+            <h2> Destaques </h2>
+            <div class="itens">
+
+                <a href="produtos/fonte_cx500.html" class="seletor"><div class="produto">
+                    <img src="https://i.imgur.com/sQLtwc1.png">
+                    <h2> Fonte de Alimentação Corsair CX500 </h2>
+                    <h1> R$ 150,00 </h1>
+                </div></a>
+
+                <a href="produtos/soldador_350.html" class="seletor"><div class="produto">
+                    <img src="https://i.imgur.com/0MESUFu.png">
+                    <h2> Soldador 350 Watts </h2>
+                    <h1> R$ 60,00 </h1>
+                </div></a>
+
+            </div>
+        </div>
+
     </section>
 
-    <footer>
-        <div class="footer_dados">
-            <p> Rua São Paulo nº 172, Bairro São Cristóvão, <nobr>Lajeado - RS. CEP: 95900-000</nobr> </p>
-            <p> e-mail: eletronicaschossler@gmail.com - <nobr><span title="Gabriel">(51) 99184-4178 </span> / <span title="Elton"> (51) 99886-6313</span></nobr></p>
+    <div class="footer">
+        <div class="informar">
+        <p> Rua São Paulo nº 172, Bairro São Cristóvão, <nobr>Lajeado - RS. CEP: 95900-000</nobr></p>
+        <p> e-mail: eletronicaschossler@gmail.com - <nobr>(51) 99184-4178 / (51) 99886-6313</nobr></p>
         </div>
 
-        <div class="footer_creditos">
-            <a href="https://www.facebook.com/schossler.gabriel" target="_blank" style="margin-right: 5px; color: inherit"><p title="Page Creator's Facebook" style="margin: 0"> Created by WGS </p></a>
-            <a href="https://www.facebook.com/schossler.gabriel" target="_blank"><img title="Page Creator's Facebook" src="sprites/facebook.png"></a>
+        <div class="designer">
+            <a target="_blank" href="https://www.facebook.com/schossler.gabriel"><img src="sprites/facebook.png"></a>
+            <a target="_blank" href="https://www.facebook.com/schossler.gabriel"><p> Created by WGS </p></a>
         </div>
-    </footer>
 
+    </div>
+
+    <script> chamar(111) </script>
 </body>
 </html>
