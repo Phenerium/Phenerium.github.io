@@ -1,155 +1,165 @@
+* {xoutline: 1px solid gray}
+
+section {display: flex; align-items: flex-start;}
+
 .menu {
+    width: 20vw;
+
     top:0;
     position: sticky;
 
     display: flex;
     flex-direction: column;
 
-    padding: 3vh 0;
-    min-width: 20%;
-
-    border-radius: 10px;
+    padding-bottom: 2px;
+    border-radius: 10px 10px 10px 0;
     background-color: #b1d6ff;
 }
-.menu h3 {
-    color: darkblue;
+.menu div {color: black; margin: 0}
+.menu h1 {color: darkblue; text-align: center}
+.menu p {
     text-align: center;
 
-    margin-top: 0;
-    padding-top: 0;
-}
-.menu a {
-    display: block;
-    font-weight: 500;
-    text-align: center;
+    margin: 0;
+    padding: 5px 10px;
 
-    color: black;
-    text-decoration: none;
-
-    padding: 3px 5px;
     border-radius: 10px;
     border-top: 2px solid white;
-    border-right: 3px solid #b1d6ff;
+    border-right: 2px solid #b1d6ff;
 }
-.menu a:hover {
-    border-right: 3px solid #0084ff;
-    background-color: white;
-}
+.menu p:not(.menu_selecionado):hover {background-color: white; border-right: 2px solid #0083fe}
+.menu_selecionado {color: white; background-color: #0083fe}
 
-#destaques {
-    color: white;
-    border-right: 3px solid #0084ff;
-    background-color: #0084ff;
-}
-#soldadores {}
-#fontes {}
-#carregadores {}
+.exibir {
+    display: grid;
+    flex-grow: 1;
+    grid-gap: 25px;
+    grid-template-columns: auto auto auto;
 
-.expo {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    padding: 0 15px 15px 15px;
 }
-.expo > h2 {
-    padding: 5px;
-    margin: 10px 0;
+.exibir > h1 {
+    grid-column: 1/4;
 
     color: darkblue;
     text-align: center;
-
-    border-radius: 15%;
-    background-color: #dde7ff;
+    margin-bottom: 0
 }
 
-.itens {
-    width: 100%;
-
+.galeria {
+    height: 300px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-direction: row;
+    grid-column: 1/4;
 }
-
-.seletor {
-    width: 30%;
-    padding: 10px 0;
-
-    color: black;
-    text-decoration: none;
-
-    margin: 1vh 1%;
-    border-radius: 15%;
-    border: 1px solid #1da1f2;
-    background-color: #e8f5fd;
-
-    transition: background-color .5s;
+.setas {
+    align-self: center;
+    width: 4vw; height: 4vw;
+    background-color: #4ab3f4;
 }
-.seletor:hover {
-    background-color: lightblue;
+.galeria_posicionar {display: flex; flex-grow: 1}
+.imagem_destacada {
+    cursor: pointer;
+    width: 10vw;
+    flex-grow: 1;
+    object-fit: contain;
+    margin: 0 1vw 0 1vw;
 }
-.seletor:hover h1, .seletor:hover h2 {
-    border: 1px solid #1da1f2;
-}
+.legenda_imagem {
+    width: 25vw;
 
-.produto {
-    display: flex;
+    color: white;
+    font-size: 12px;
+
+    padding: 0 1vw;
+    margin-right: 1vw;
+    background-color: #24262b;
+    border-radius: 0 15px 15px 0;
+}
+.setas {cursor: pointer}
+.setas:hover {background-color: #0083fe}
+
+.item_container {
+    cursor: pointer;
+
+    width: 20vw;
+    font-size: 12px;
+
+    display: none;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-}
-.produto img {
-    display: block;
-    width: 80%;
-    max-width: 90%;
 
-    border-radius: 15%;
-
+    padding: 10px;
+    border-radius: 35px;
+    border: 1px solid #1da1f2;
+    background-color: #e8f5fd;
+    transition: background-color .5s;
 }
-.produto h1, .produto h2 {
+.item_container img {width: 15vw;}
+.item_container h1 {
     text-align: center;
 
-    padding: 4px;
     margin: 10px 0;
-}
-.produto h1 {
+    padding: 0 5px;
+
+    border-radius:15px;
+    border: 1px solid lightblue;
+    background-color: #e7f4fc}
+.item_container h2 {
     color: red;
-    font-size: 18px;
-
-    border-radius: 20%;
-    background-color: #f5f6f7;
-    border: 1px solid lightblue;
-}
-.produto h2 {
-    font-size: 14px;
-
-    border-radius: 20%;
-    background-color: #f5f6f7;
-    border: 1px solid lightblue;
-}
-
-@media only screen and (max-width: 420px){
-
-.section {
-    flex-direction: column;
-}
-
-.menu {
-    position: static;
-    width: 100%;
-    max-width: none;
-}
-
-.seletor {
-    width: 40%;
-}
-
-.designer {
-    flex-direction: column;
-}
-.designer p {
     text-align: center;
+
+    padding: 0 5px;
+
+    border-radius:15px;
+    border: 1px solid lightblue;
+    background-color: #e7f4fc}
+.item_container:hover {background-color: lightblue}
+.item_container:hover h1, .item_container:hover h2 {border: 1px solid #1da1f2}
+
+
+@media only screen and (max-width: 600px){
+
+section {flex-direction: column}
+
+.menu {width: 100%; position: static; margin-bottom: 20px}
+
+.exibir {grid-template-columns: auto auto}
+.exibir > h1 {grid-column: 1/3}
+
+.galeria {grid-column: 1/3; height: auto}
+.galeria_posicionar {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    flex-direction: column;
 }
-.footer p {
-    font-size: 10px;
+.imagem_destacada {
+    width: 70%;
+    flex-grow: 1;
+    object-fit: contain;
+    margin: 0 1vw 0 1vw;
 }
+.legenda_imagem {
+    width: 100%;
+
+    color: white;
+    font-size: 12px;
+
+    padding: 0 5vw;
+    margin-right: 0;
+    margin-top: 1vh;
+    border-radius: 15px;
+    background-color: #24262b;
+}
+.setas {
+    align-self: flex-start;
+    width: 10vw; height: 10vw;
+    background-color: #4ab3f4;
+}
+#botao_voltar {position: absolute; left: 5vw}
+#botao_seguir {position: absolute; right: 5vw}
+
+.item_container {width: 40vw}
+.item_container img {width: 30vw}
 }

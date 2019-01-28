@@ -1,37 +1,33 @@
-* {xoutline: 1px solid rgba(0, 0, 0, .3)}
+* {xoutline: 1px solid gray}
 
-
-.section {
+section {
+    display: flex;
     align-items: center;
     flex-direction: column;
 }
-.section h1 {
-    color: darkblue;
-}
-.section > h2 {
+section h1 {color: darkblue}
+section > h2 {
     font-size: 18px;
     text-align: center;
 
-    margin: 2vh 4vw;
-
+    margin: 10px 4vw;
     background-color: #e8f5fd;
 }
-
 
 .photo {
     width: 75vw;
 
     display: flex;
-    justify-content: space-around;
     flex-direction: row;
+    justify-content: space-around;
 
-    margin: 4vh 2vw;
+    margin: 30px 2vw;
 }
 .photo > img {
-    padding: 2vh 2vw;
+    width: 320px;
+    height: 320px;
 
-    width: 50vh;
-    height: 50vh;
+    padding: 10px 2vw;
 }
 
 .dados {
@@ -42,7 +38,7 @@
 
     max-width: 30vw;
 
-    padding: 2vh 2vw;
+    padding: 10px 2vw;
     border-radius: 20px;
     background-color: #b1d6ff;
 }
@@ -65,33 +61,14 @@
     width: 20px;
     height: 20px;
 }
-.tel > h4 {
-    text-shadow: 1px 1px white;
-}
+.tel > h4 {text-shadow: 1px 1px white}
 
 @media only screen and (max-width: 420px){
 
-.section > h2 {
-    font-size: 12px;
-}
-.inverter {
-    flex-direction: column-reverse;
-}
-.photo {
-    flex-wrap: wrap;
-    align-items: center;
-}
-.photo > img {
-    width: 50vw;
-    height: 50vw;
-}
+section > h2 {font-size: 14px;}
+.inverter {flex-direction: column-reverse}
+.photo {flex-wrap: wrap; align-items: center}
+.photo > img {width: 50vw; height: 50vw}
 
-.dados {
-    width: 70vw;
-    max-width: none;
-}
-
-
-
-
+.dados {width: 70vw; max-width: none}
 }

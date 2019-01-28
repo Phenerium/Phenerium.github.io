@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<produtos>
+
+    <destaques>
+
+        <destaque_1> soldador_350w </destaque_1>
+        <destaque_2> cx500 </destaque_2>
+
+    </destaques>
+
+
+    <soldadores>
+
+        <soldador_350w>
+            <titulo> Soldador 350w </titulo>
+            <sumario> Produto de alto rendimento, destinado à pequenas e médias tarefas. </sumario>
+            <estoque> 0 </estoque>
+            <de> 0 </de>
+            <preco> 60,00 </preco>
+            <estado> novo </estado>
+            <garantia> 36 </garantia>
+
+            <info>
+                Nosso soldador dispensa aquecimento prévio, para utilizar basta pressionar o gatilho. Além de ser muito mais prático, o gasto com energia é muito menor. Além do mais, nosso produto é feito majoritáriamente de materiais reaproveitados, o que condiz com a nossa missão em colaborar com o meio ambiente.
+            </info>
+
+            <especs>
+                <spec> Potência: 350 watts </spec>
+                <spec> Tensão: 220 volts </spec>
+                <spec> Peso: ~2kg </spec>
+                <spec> Tamanho do rabixo: ~1.7 metros </spec>
+            </especs>
+
+            <imagens>
+                <imagem> https://i.imgur.com/0MESUFu.png </imagem>
+                <imagem> https://i.imgur.com/0MESUFu.png </imagem>
+                <imagem> https://i.imgur.com/0MESUFu.png </imagem>
+            </imagens>
+        </soldador_350w>
+
+    </soldadores>
+
+    <fontes>
+
+        <cx500>
+            <titulo> Fonte Corsair CX500 </titulo>
+            <sumario> Fonte gamer de alto desempenho, destinada à setups robustos. </sumario>
+            <estoque> 1 </estoque>
+            <de> 200,00 </de>
+            <preco> 150,00 </preco>
+            <estado> usado </estado>
+            <garantia> 12 </garantia>
+
+            <info>
+                Uma escolha ideal para os desenvolvedores e atualizadores de sistema conscientes sobre os custos. As unidades de fonte de alimentação CX Series são uma excelente opção para montagens básicas do sistema e atualizações de computador do PC desktop. As PSUs CX Series estão disponíveis numa variedade de configurações de alimentação, e incluem funcionalidades que são normalmente encontradas apenas em fontes de alimentação superiores.
+            </info>
+
+            <especs>
+                <spec> Marca: Corsair </spec>
+                <spec> Modelo: CX500 </spec>
+                <spec> Potência: 500 watts </spec>
+                <spec> Vida útil: ~100 mil horas </spec>
+                <spec> Tamanho da ventoinha: 120mm </spec>
+            </especs>
+
+            <imagens>
+                <imagem> https://i.imgur.com/sQLtwc1.png </imagem>
+                <imagem> https://i.imgur.com/sQLtwc1.png </imagem>
+                <imagem> https://i.imgur.com/sQLtwc1.png </imagem>
+            </imagens>
+        </cx500>
+
+    </fontes>
+
+
+
+</produtos>
+
