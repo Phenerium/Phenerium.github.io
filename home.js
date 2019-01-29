@@ -1,10 +1,10 @@
 var dados;  // Variável que armazena o documento XML
+var lista_elementos; // Lista com os elementos disponíveis
 var i;      // Variável auxiliar para percorrer os containers
 var max_i;  // Variável auxiliar que determina o máximo de itens
-var lista_elementos;  // Lista que contem os elementos que darão os dados
+var funcoes = {'teste': function(){console.log("Olá Marilene!")}};  // Objeto que armazenará as funções que irão abrir
 
 pegar_dados();  // Função que pega os dados do XML logo que o documento é carregado
-
 var clock = setInterval(trocador, 4000);  // Criamos um relógio para que os elementos sejam alterados
 
 
@@ -23,6 +23,15 @@ function atualizador () {  // Atualiza os itens disponíveis na tela para trocar
     i = 0;  // Reseta o valor da variável auxiliar utilizada para a alteração dos blocos
 }
 
+function trocador(sentido=1) {  // Altera os dados do container descritivo
+    sentido = Number(sentido);  // Primeiro convertemos a variável para número
+    i += sentido;  // Aumentamos o índice da variável
+
+    if (i > max_i) {i = 0}  // Se passar do máximos voltamos pro inicio
+    else if (i < 0) {i = max_i}  // Se passar do mínimo voltamos para o máximo
+
+    trocar_elemento(lista_elementos[i]);  // Por fim, usamos a função anterior para trocar
+}
 function trocar_elemento(elemento) {  // Usada para disponibilizar a legenda do elemento
 
    if (lista_elementos.length > 1) {  // Se houver mais que dois elementos realizamos a animação
@@ -58,15 +67,6 @@ function trocar_elemento(elemento) {  // Usada para disponibilizar a legenda do 
     document.getElementById("destaque_preco_de_2").innerHTML = de;
     document.getElementById("destaque_preco_por_2").innerHTML = por;
 }
-function trocador(sentido=1) {  // Altera os dados do container descritivo
-    sentido = Number(sentido);  // Primeiro convertemos a variável para número
-    i += sentido;  // Aumentamos o índice da variável
-
-    if (i > max_i) {i = 0}  // Se passar do máximos voltamos pro inicio
-    else if (i < 0) {i = max_i}  // Se passar do mínimo voltamos para o máximo
-
-    trocar_elemento(lista_elementos[i]);  // Por fim, usamos a função anterior para trocar
-}
 
 function alterar_selecao(classe, este=document.getElementById('destaques')) {  // Função que mostra os itens de acordo com a classe
     apagar();  // Apaga os elementos iniciais
@@ -92,6 +92,7 @@ function alterar_selecao(classe, este=document.getElementById('destaques')) {  /
             if (!objeto.classList.contains("marker")) {objeto.classList.add("marker")}  // Se não tiver marcamos o elemento
             if (!objeto.classList.contains("fadeOut")) {objeto.classList.add("fadeOut")}  // Adicionamos a animação se não tiver
             objeto.addEventListener("animationend", function (){objeto.classList.remove("fadeOut")});  // Removemos a animação no final
+            objeto.addEventListener("click", funcoes[achado.nodeName.trim()]);
 
             /* Nas linhas abaixo coletamos os dados do documento XML */
             let imagem = achado.getElementsByTagName("imagem")[0].textContent;
@@ -166,7 +167,7 @@ function pegar_dados(){  // Adquire a informação do banco de dados
     xhttp.send();  // Envia os dados para o servidor
 
     /* No comando abaixo definimos que depois de receber a aprovação o banco de dados será atualizado e a imagem irá adaptar os elementos */
-    xhttp.onreadystatechange = function() {if (this.readyState === 4 && this.status === 200) {dados = this.responseXML; criar_elementos(); alterar_selecao("destaques")}}}
+    xhttp.onreadystatechange = function() {if (this.readyState === 4 && this.status === 200) {dados = this.responseXML; criar_elementos(); criar_funcoes(); alterar_selecao("destaques")}}}
 function criar_elementos(){  // Cria a quantidade adequada de itens
     let divisoria = document.getElementById("exibir");  // Pegamos a divisória onde serão criados os itens
     let quantidade = dados.getElementsByTagName("titulo").length;  // Verificamos a quantidade de itens a ser criados
@@ -176,8 +177,8 @@ function criar_elementos(){  // Cria a quantidade adequada de itens
             ' <h1> Nome do Produto </h1> <h2> Preço </h2> <h5 style="color: green; font-size: 12px; margin: 0">' +
             ' Disponível </h5> <h3 style="display: none"> Sumário </h3> <h4 style="display: none"> De </h4> </div>'}}
 
-function bindar(elemento, alvo) {
-    criar_elementos();
-    //window.open("products/product.html?soldador_350w", '_self')
-
-}
+function criar_funcoes() {  // Cria as funções de abrir os elementos
+    let elementos = dados.getElementsByTagName("titulo");
+    for (let aux = 0; aux < elementos.length; aux += 1) {
+        let nome = dados.getElementsByTagName("titulo")[aux].parentNode.nodeName;
+        funcoes[nome] = function(){window.open("products/product.html?" + nome, "_self")};}}
