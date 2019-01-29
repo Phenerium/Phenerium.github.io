@@ -2,7 +2,7 @@ var dados;  // Variável que armazena o documento XML
 var lista_elementos; // Lista com os elementos disponíveis
 var i;      // Variável auxiliar para percorrer os containers
 var max_i;  // Variável auxiliar que determina o máximo de itens
-var funcoes = {'teste': function(){console.log("Olá Marilene!")}};  // Objeto que armazenará as funções que irão abrir
+var funcoes = {};  // Objeto que armazenará as funções que irão abrir
 
 pegar_dados();  // Função que pega os dados do XML logo que o documento é carregado
 var clock = setInterval(trocador, 4000);  // Criamos um relógio para que os elementos sejam alterados
@@ -40,11 +40,15 @@ function trocar_elemento(elemento) {  // Usada para disponibilizar a legenda do 
    else {clearInterval(clock)}  // Caso contrário apenas removemos a função
 
     /* Nas linhas abaixo apenas pegamos as informações SEM ESPAÇO */
+    var pai = elemento.getElementsByTagName("p")[0].innerHTML.trim();
     var titulo = elemento.getElementsByTagName("h1")[0].innerHTML.trim();
     var sumario = elemento.getElementsByTagName("h3")[0].innerHTML.trim();
     var imagem = elemento.getElementsByTagName("img")[0].src.trim();
     var de = elemento.getElementsByTagName("h4")[0].innerHTML.trim();
     var por = elemento.getElementsByTagName("h2")[0].innerHTML.trim();
+
+
+    document.getElementById("imagem_destacada").addEventListener("click", funcoes[pai]);
 
     /* Se não houver estoque alteramos a legenda e também a sua cor */
     if (de.trim() === "0") {document.getElementById("destaque_preco_de").style.display = "none"}
@@ -92,7 +96,7 @@ function alterar_selecao(classe, este=document.getElementById('destaques')) {  /
             if (!objeto.classList.contains("marker")) {objeto.classList.add("marker")}  // Se não tiver marcamos o elemento
             if (!objeto.classList.contains("fadeOut")) {objeto.classList.add("fadeOut")}  // Adicionamos a animação se não tiver
             objeto.addEventListener("animationend", function (){objeto.classList.remove("fadeOut")});  // Removemos a animação no final
-            objeto.addEventListener("click", funcoes[achado.nodeName.trim()]);
+            objeto.addEventListener("click", funcoes[achado.nodeName.trim()]);  // Adicionamos a função respectiva para abrir uma nova página
 
             /* Nas linhas abaixo coletamos os dados do documento XML */
             let imagem = achado.getElementsByTagName("imagem")[0].textContent;
@@ -110,6 +114,7 @@ function alterar_selecao(classe, este=document.getElementById('destaques')) {  /
             objeto.getElementsByTagName("h3")[0].innerHTML = sumario;
             objeto.getElementsByTagName("h4")[0].innerHTML = de;
             objeto.getElementsByTagName("h2")[0].innerHTML = preco;
+            objeto.getElementsByTagName("p")[0].innerHTML = achado.nodeName;
 
             let disponivel = objeto.getElementsByTagName("h5")[0];  // Salvamos o elemento de disponibilidade
             /* Se tiver mais que um será disponível, caso contrário indisponível. Também ajusta a cor do elemento */
@@ -130,6 +135,7 @@ function alterar_selecao(classe, este=document.getElementById('destaques')) {  /
             if (!objeto.classList.contains("marker")) {objeto.classList.add("marker")}  // Se não tiver a marcação adicionamos
             if (!objeto.classList.contains("fadeOut")) {objeto.classList.add("fadeOut")}  // Se não tiver a animação adicionamos
             objeto.addEventListener("animationend", function (){objeto.classList.remove("fadeOut")});  // Removemos a animação no final
+            objeto.addEventListener("click", funcoes[elemento.nodeName.trim()]);  // Adicionamos a função respectiva para abrir uma nova página
 
             /* No trecho abaixo apenas são coletadas as informações do documento XML */
             let imagem = elemento.getElementsByTagName("imagem")[0].textContent;
@@ -147,6 +153,7 @@ function alterar_selecao(classe, este=document.getElementById('destaques')) {  /
             objeto.getElementsByTagName("h3")[0].innerHTML = sumario;
             objeto.getElementsByTagName("h4")[0].innerHTML = de;
             objeto.getElementsByTagName("h2")[0].innerHTML = preco;
+            objeto.getElementsByTagName("p")[0].innerHTML = elemento.nodeName;
 
             let disponivel = objeto.getElementsByTagName("h5")[0];  // Coletamos o elemento disponibilidade
             /* Nos dados abaixo apenas adaptamos o texto e a cor devido a quantidade de estoque */
@@ -175,8 +182,7 @@ function criar_elementos(){  // Cria a quantidade adequada de itens
     for (let aux = 1; aux <= quantidade; aux += 1){  // Percorremos o loop criado cada item
         divisoria.innerHTML += '<div id="item_'+ aux +'" class="item_container"> <img src="sprites/logo.png">' +
             ' <h1> Nome do Produto </h1> <h2> Preço </h2> <h5 style="color: green; font-size: 12px; margin: 0">' +
-            ' Disponível </h5> <h3 style="display: none"> Sumário </h3> <h4 style="display: none"> De </h4> </div>'}}
-
+            ' Disponível </h5> <h3 style="display: none"> Sumário </h3> <h4 style="display: none"> De </h4> <p style="display: none"> cx500 </p></div>'}}
 function criar_funcoes() {  // Cria as funções de abrir os elementos
     let elementos = dados.getElementsByTagName("titulo");
     for (let aux = 0; aux < elementos.length; aux += 1) {
