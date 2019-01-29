@@ -37,6 +37,12 @@
                 <imagem> https://i.imgur.com/0MESUFu.png </imagem>
                 <imagem> https://i.imgur.com/0MESUFu.png </imagem>
             </imagens>
+
+            <anuncios>
+                <anuncio_principal> cx500 </anuncio_principal>
+                <anuncio_secundario> soldador_350w </anuncio_secundario>
+                <anuncio_terciario> cx500 </anuncio_terciario>
+            </anuncios>
         </soldador_350w>
 
     </soldadores>
@@ -69,6 +75,12 @@
                 <imagem> https://i.imgur.com/sQLtwc1.png </imagem>
                 <imagem> https://i.imgur.com/sQLtwc1.png </imagem>
             </imagens>
+
+            <anuncios>
+                <anuncio_principal> cx500 </anuncio_principal>
+                <anuncio_secundario> soldador_350w </anuncio_secundario>
+                <anuncio_terciario> cx500 </anuncio_terciario>
+            </anuncios>
         </cx500>
 
     </fontes>

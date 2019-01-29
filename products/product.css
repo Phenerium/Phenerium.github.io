@@ -29,6 +29,8 @@ section {
 }
 
 .setas {
+    cursor: pointer;
+
     width: 30px;
     height: 30px;
 
@@ -36,7 +38,7 @@ section {
 }
 #seta_1 {transform: rotateZ(-90deg)}
 #seta_2 {transform: rotateZ(90deg)}
-.setas:hover {background-color: #0083fe; cursor: pointer}
+.setas:hover {background-color: #0083fe}
 
 .container_miniaturas {
     margin: 15px 0;
@@ -59,8 +61,8 @@ section {
 .menu_selecionado {border-color: darkblue}
 .miniaturas:not(.menu_selecionado):hover {border-color: #0083fe}
 
-
 .sumario {
+    max-width: 30vw;
     display: flex;
     flex-direction: column;
 
@@ -76,6 +78,7 @@ section {
 #por {color: greenyellow}
 #estado {color: cornflowerblue; margin-top: 20px}
 #garantia {color: #b1d6ff}
+#sumario {color:white; text-align:justify; font-size:12px; margin: 20px 0;}
 
 .informacoes {
     padding: 0 20px;
@@ -95,6 +98,8 @@ section {
     border-bottom: 2px inset #0083fe;
 }
 .anuncio {
+    cursor: pointer;
+
     min-width: 20vw;
     max-width: 29vw;
 
@@ -148,10 +153,9 @@ section {
     border: 1px solid lightblue;
     background-color: white;
 }
-.anuncio:hover {background-color: lightblue; cursor: pointer}
+.anuncio:hover {background-color: lightblue}
 .anuncio:hover h1, .anuncio:hover h2 {border: 1px solid #0083fe}
 #anuncio_mobile {display: none}
-
 
 .tremer {
     left: 0;
@@ -173,7 +177,7 @@ section {
 
 .dados {flex-direction: column-reverse}
 
-.sumario {border-radius: 15px}
+.sumario {max-width: none; border-radius: 15px}
 
 #imagem_grande {align-self:center; width: 60vw}
 
@@ -195,9 +199,7 @@ section {
 
     margin: 10px 0 0 0;
 }
-.miniaturas {
-    margin: 0
-}
+.miniaturas {margin: 0}
 .miniaturas img {width: 20vw;}
 
 #seta_1 {

@@ -41,10 +41,10 @@
             <h1 style="margin-right: 1vw; margin-left: 1vw"> Categorias </h1>
             <p onclick="alterar_selecao('destaques', this)" style="cursor: pointer" id="destaques" class="menu_selecionado options"> Destaques </p>
             <p onclick="alterar_selecao('soldadores', this)" style="cursor: pointer" id="soldadores" class="options"> Soldadores </p>
-            <p onclick="testar()" style="cursor: pointer" id="fontes" class="options"> Fontes de Alimentação </p>
+            <p onclick="alterar_selecao('fontes', this)" style="cursor: pointer" id="fontes" class="options"> Fontes de Alimentação </p>
         </div>
 
-        <div class="exibir">
+        <div id="exibir" class="exibir">
 
             <h1 id="selecionado"> Destaques </h1>
 
@@ -62,39 +62,6 @@
                 </div>
 
                <img id="botao_seguir" onclick="trocador(1)" src="sprites/seta.png" class="setas" >
-            </div>
-
-            <div id="item_1" class="item_container">
-                <img src="sprites/logo.png">
-                <h1> Nome do Produto </h1>
-                <h2> Preço </h2>
-                <h5 style="color: green; font-size: 12px; margin: 0"> Disponível </h5>
-                <h3 style="display: none"> Sumário </h3>
-                <h4 style="display: none"> De </h4>
-            </div>
-            <div id="item_2" class="item_container">
-                <img src="sprites/logo.png">
-                <h1> Nome do Produto </h1>
-                <h2> Preço </h2>
-                <h5 style="color: green; font-size: 12px; margin: 0"> Disponível </h5>
-                <h3 style="display: none"> Sumário </h3>
-                <h4 style="display: none"> De </h4>
-            </div>
-            <div id="item_3" class="item_container">
-                <img src="sprites/logo.png">
-                <h1> Nome do Produto </h1>
-                <h2> Preço </h2>
-                <h5 style="color: green; font-size: 12px; margin: 0"> Disponível </h5>
-                <h3 style="display: none"> Sumário </h3>
-                <h4 style="display: none"> De </h4>
-            </div>
-            <div id="item_4" class="item_container">
-                <img src="sprites/logo.png">
-                <h1> Nome do Produto </h1>
-                <h2> Preço </h2>
-                <h5 style="color: green; font-size: 12px; margin: 0"> Disponível </h5>
-                <h3 style="display: none"> Sumário </h3>
-                <h4 style="display: none"> De </h4>
             </div>
 
         </div>

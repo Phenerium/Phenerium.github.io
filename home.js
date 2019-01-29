@@ -166,9 +166,18 @@ function pegar_dados(){  // Adquire a informação do banco de dados
     xhttp.send();  // Envia os dados para o servidor
 
     /* No comando abaixo definimos que depois de receber a aprovação o banco de dados será atualizado e a imagem irá adaptar os elementos */
-    xhttp.onreadystatechange = function() {if (this.readyState === 4 && this.status === 200) {dados = this.responseXML; alterar_selecao("destaques")}}}
+    xhttp.onreadystatechange = function() {if (this.readyState === 4 && this.status === 200) {dados = this.responseXML; criar_elementos(); alterar_selecao("destaques")}}}
+function criar_elementos(){  // Cria a quantidade adequada de itens
+    let divisoria = document.getElementById("exibir");  // Pegamos a divisória onde serão criados os itens
+    let quantidade = dados.getElementsByTagName("titulo").length;  // Verificamos a quantidade de itens a ser criados
 
-function testar() {
-    window.open("products/product.html?teste='oi'&nome='bla'", '_self')
+    for (let aux = 1; aux <= quantidade; aux += 1){  // Percorremos o loop criado cada item
+        divisoria.innerHTML += '<div id="item_'+ aux +'" class="item_container"> <img src="sprites/logo.png">' +
+            ' <h1> Nome do Produto </h1> <h2> Preço </h2> <h5 style="color: green; font-size: 12px; margin: 0">' +
+            ' Disponível </h5> <h3 style="display: none"> Sumário </h3> <h4 style="display: none"> De </h4> </div>'}}
+
+function bindar(elemento, alvo) {
+    criar_elementos();
+    //window.open("products/product.html?soldador_350w", '_self')
 
 }
