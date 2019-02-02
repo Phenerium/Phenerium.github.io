@@ -4,7 +4,7 @@ section {
     padding: 10px 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .item_container {
@@ -49,7 +49,7 @@ section {
 .item_container:hover h1, .item_container:hover h2 {border: 1px solid #1da1f2}
 
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 768px){
 
 .item_container {width: 40vw}
 .item_container img {width: 30vw}

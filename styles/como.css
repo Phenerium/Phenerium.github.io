@@ -51,7 +51,7 @@ section > h3 {
 
 section > h3, .qrcode > h1, section h2 {border-radius: 10%; background-color: #e8f5fd}
 
-@media only screen and (max-width: 420px){
+@media only screen and (max-width: 768px){
 
 .mapas {align-items: center; flex-direction: column}
 .mapas iframe {width: 80vw; height: 80vw}

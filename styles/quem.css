@@ -63,7 +63,7 @@ section > h2 {
 }
 .tel > h4 {text-shadow: 1px 1px white}
 
-@media only screen and (max-width: 420px){
+@media only screen and (max-width: 768px){
 
 section > h2 {font-size: 14px;}
 .inverter {flex-direction: column-reverse}
