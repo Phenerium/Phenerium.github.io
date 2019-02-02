@@ -92,7 +92,6 @@ section {display: flex; align-items: flex-start;}
     padding: 10px;
     border-radius: 35px;
     border: 1px solid #1da1f2;
-    background-color: #e8f5fd;
     transition: background-color .5s;
 }
 .item_container img {width: 15vw;}
@@ -104,7 +103,8 @@ section {display: flex; align-items: flex-start;}
 
     border-radius:15px;
     border: 1px solid lightblue;
-    background-color: #e7f4fc}
+    transition: border .5s;
+    background-color: white}
 .item_container h2 {
     color: red;
     text-align: center;
@@ -113,7 +113,8 @@ section {display: flex; align-items: flex-start;}
 
     border-radius:15px;
     border: 1px solid lightblue;
-    background-color: #e7f4fc}
+    transition: border .5s;
+    background-color: white}
 .item_container:hover {background-color: lightblue}
 .item_container:hover h1, .item_container:hover h2 {border: 1px solid #1da1f2}
 

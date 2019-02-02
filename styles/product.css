@@ -40,7 +40,7 @@ section {
 #seta_2 {transform: rotateZ(90deg)}
 .setas:hover {background-color: #0083fe}
 
-.container_miniaturas {
+.container_miniaturas{
     margin: 15px 0;
     height: 260px;
 
@@ -118,7 +118,6 @@ section {
 
     border-radius: 10px;
     border: 1px solid #1da1f2;
-    background-color: #e8f5fd;
 
     transition: background-color .5s;
 }
@@ -138,7 +137,8 @@ section {
 
     border-radius:15px;
     border: 1px solid lightblue;
-    background-color: #e7f4fc
+    background-color: white;
+    transition: border .5s;
 }
 .anuncio > h2 {
     color: red;
@@ -152,6 +152,7 @@ section {
     border-radius:15px;
     border: 1px solid lightblue;
     background-color: white;
+    transition: border .5s;
 }
 .anuncio:hover {background-color: lightblue}
 .anuncio:hover h1, .anuncio:hover h2 {border: 1px solid #0083fe}

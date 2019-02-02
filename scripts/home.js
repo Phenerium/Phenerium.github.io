@@ -51,8 +51,8 @@ function trocar_elemento(elemento) {  // Usada para disponibilizar a legenda do 
     document.getElementById("imagem_destacada").addEventListener("click", funcoes[pai]);
 
     /* Se não houver estoque alteramos a legenda e também a sua cor */
-    if (de.trim() === "0") {document.getElementById("destaque_preco_de").style.display = "none"}
-    else {document.getElementById("destaque_preco_de").style.display = "block"; document.getElementById("destaque_preco_de_2").innerHTML = de;}
+    if (de.trim() === "0") {document.getElementById("destaque_preco_de").style.display = "none"; document.getElementById("destaque_preco_por").style.textAlign = "center"}
+    else {document.getElementById("destaque_preco_de").style.display = "block"; document.getElementById("destaque_preco_de_2").innerHTML = de; document.getElementById("destaque_preco_por").style.textAlign = "left"}
 
     /* Pegamos a referência da imagem maior */
     var imagem_grande = document.getElementsByClassName("imagem_destacada")[0];
@@ -187,4 +187,4 @@ function criar_funcoes() {  // Cria as funções de abrir os elementos
     let elementos = dados.getElementsByTagName("titulo");
     for (let aux = 0; aux < elementos.length; aux += 1) {
         let nome = dados.getElementsByTagName("titulo")[aux].parentNode.nodeName;
-        funcoes[nome] = function(){window.open("products/product.html?" + nome, "_self")};}}
+        funcoes[nome] = function(){window.open("product.html?" + nome, "_self")};}}

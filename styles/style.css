@@ -9,7 +9,7 @@ body {
     display: grid;
     grid-template-rows: auto auto auto;
 
-    background-image: url("sprites/background.png");   /* Arrumar o background */
+    background-image: url("../sprites/background.png");
     background-size: cover;
 
     animation-name: fadeOut;
@@ -24,7 +24,7 @@ header {
 }
 header > a {width: 100px; height: 100px}
 
-.pesquisa {display: flex; align-items: center}
+.pesquisa {position:relative; display: flex; align-items: center}
 .pesquisa button {
     height: 40px;
 
@@ -41,6 +41,21 @@ header > a {width: 100px; height: 100px}
 }
 .pesquisa input[type=text]:focus {outline: 1px outset #0083fe}
 .button_icons {width: 30px; height: 30px}
+.pesquisa div {
+    position: absolute;
+    top: 70%;
+    width: 30vw;
+    background-color: white;
+    border: 1px solid #1da1f2;
+    z-index: 1;
+
+}
+.pesquisa div h3 {
+    margin: 0;
+    padding: 5px;
+    transition: background-color 250ms;
+}
+.pesquisa div h3:hover {background-color: lightblue}
 
 .info {
     grid-gap: 5px;
@@ -104,6 +119,7 @@ footer {
 
     padding: 5px 10px;
     border-radius: 15px;
+    margin-bottom: 10px;
     border: 1px outset #0083fe;
     background-color: white;
 }
@@ -213,6 +229,8 @@ section {margin: 1vh 1vw 2vh 1vw}
 }
 .pesquisa input[type=text]:focus {outline: 1px outset #0083fe}
 .button_icons {width: 20px; height: 20px}
+
+.pesquisa div {top: 95%; width: 80vw}
 
 .footer_creditos {
     font-size: 12px;
