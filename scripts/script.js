@@ -8,7 +8,7 @@ function procurar(event){  // Procura o que o usuário digitou
     var keywords;  // Criamos a lista dos elementos a serem procurados
 
     if (event.key == "Enter") {  // Se for enter validamos
-        let endereco = "results.html?";  // Criamos o endereço base
+        let endereco = "results?";  // Criamos o endereço base
         for (let aux = 0; aux < correspondentes.length; aux += 1) {  // Corremos cada correspondencia
             endereco += correspondentes[aux].getElementsByTagName("titulo")[0].parentNode.nodeName + "&";  // Formatamos
             window.open(endereco, "_self")}}  // Mandamos abrir a página que lidará com os resultados encontrados
@@ -28,7 +28,7 @@ function procurar(event){  // Procura o que o usuário digitou
      sugestoes(correspondentes)}}  // Por final, acionamos a função que mostra os itens encontrados ao usuário
 
 function validar(){  // Função acionada quando o botão é pressionado
-    let endereco = "results.html?";  // Criamos o endereço base
+    let endereco = "results?";  // Criamos o endereço base
     for (let aux = 0; aux < correspondentes.length; aux += 1) {  // Corremos cada correspondencia
         endereco += correspondentes[aux].getElementsByTagName("titulo")[0].parentNode.nodeName + "&";  // Formatamos
         window.open(endereco, "_self")}}  // Mandamos abrir a página que lidará com os resultados encontrados
@@ -43,7 +43,7 @@ function sugestoes(itens){  // Mostra na tela os itens sugeridos
             item.innerHTML = itens[aux].getElementsByTagName("titulo")[0].textContent;  // Bind do texto
             item.alt = itens[aux].nodeName;  // Adicionamos uma referência para a chamada da função
             item.style.cursor = "pointer";  // Alteramos o cursor, para dar um efeito de seleção
-            item.addEventListener('click', function(){window.open("product.html?" + event.target.alt, "_self")});  // Bind do evento
+            item.addEventListener('click', function(){window.open("product?" + event.target.alt, "_self")});  // Bind do evento
             caixa.appendChild(item)}}}  // Agora pronto, adicionamos o item à lista de sugestões
 
 function pegar_dados(){  // Adquire a informação do banco de dados

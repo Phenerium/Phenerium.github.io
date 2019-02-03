@@ -91,22 +91,22 @@ function atualizar_dados(){  // Atualiza as informações passadas
     anuncio_mobile.getElementsByTagName("img")[0].src = anuncio1.getElementsByTagName("imagem")[0].textContent;
     anuncio_mobile.getElementsByTagName("h1")[0].innerHTML = anuncio1.getElementsByTagName("titulo")[0].textContent;
     anuncio_mobile.getElementsByTagName("h2")[0].innerHTML = anuncio1.getElementsByTagName("preco")[0].textContent;
-    anuncio_mobile.addEventListener("click", function(){window.open("product.html?" + anuncio1.nodeName)});
+    anuncio_mobile.addEventListener("click", function(){window.open("product?" + anuncio1.nodeName)});
 
     anuncio_1.getElementsByTagName("img")[0].src = anuncio1.getElementsByTagName("imagem")[0].textContent;
     anuncio_1.getElementsByTagName("h1")[0].innerHTML = anuncio1.getElementsByTagName("titulo")[0].textContent;
     anuncio_1.getElementsByTagName("h2")[0].innerHTML = anuncio1.getElementsByTagName("preco")[0].textContent;
-    anuncio_1.addEventListener("click", function(){window.open("product.html?" + anuncio1.nodeName)});
+    anuncio_1.addEventListener("click", function(){window.open("product?" + anuncio1.nodeName)});
 
     anuncio_2.getElementsByTagName("img")[0].src = anuncio2.getElementsByTagName("imagem")[0].textContent;
     anuncio_2.getElementsByTagName("h1")[0].innerHTML = anuncio2.getElementsByTagName("titulo")[0].textContent;
     anuncio_2.getElementsByTagName("h2")[0].innerHTML = anuncio2.getElementsByTagName("preco")[0].textContent;
-    anuncio_2.addEventListener("click", function(){window.open("product.html?" + anuncio2.nodeName)});
+    anuncio_2.addEventListener("click", function(){window.open("product?" + anuncio2.nodeName)});
 
     anuncio_3.getElementsByTagName("img")[0].src = anuncio3.getElementsByTagName("imagem")[0].textContent;
     anuncio_3.getElementsByTagName("h1")[0].innerHTML = anuncio3.getElementsByTagName("titulo")[0].textContent;
     anuncio_3.getElementsByTagName("h2")[0].innerHTML = anuncio3.getElementsByTagName("preco")[0].textContent;
-    anuncio_3.addEventListener("click", function(){window.open("product.html?" + anuncio3.nodeName)});
+    anuncio_3.addEventListener("click", function(){window.open("product?" + anuncio3.nodeName)});
 
 
     /* Analisamos a disponibilidade e damos um retorno adequado */
