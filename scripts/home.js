@@ -38,7 +38,8 @@ function criar_selecoes(){  // Função que criará os menus guia
 
     for (let aux = 1; aux < elementos.length; aux += 2) {  // Corremos os elementos
         let elemento = document.createElement("p");  // Criamos o elemento
-        elemento.innerHTML = elementos[aux].nodeName;  // Definimos o texto
+
+        elemento.innerHTML = elementos[aux].nodeName.trim().replace(/_/g, " ");  // Definimos o texto
         elemento.style.cursor = "pointer";  // Atribuimos o estilo do ponteiro
         elemento.classList.add("options");  // Marcamos o elemento como uma opção
         elemento.addEventListener('click', alterar_selecao);  // Bind do evento
@@ -49,7 +50,7 @@ function criar_selecoes(){  // Função que criará os menus guia
 }
 
 function alterar_selecao(evento) {  // Função que mostra os itens de acordo com a classe
-    var categoria = dados.getElementsByTagName(evento.target.innerHTML)[0];  // Coletamos a categoria
+    var categoria = dados.getElementsByTagName(evento.target.innerHTML.replace(/ /g, "_"))[0];  // Coletamos a categoria
     var divisoria = document.getElementById("exibir");  // Coletamos a divisória que alocará os elementos
     var apagar = divisoria.getElementsByClassName("item_container").length;  // Quantidade de itens a ser removidos
     var menus = document.getElementsByClassName("options");  // Armazena todos os menus disponíveis
