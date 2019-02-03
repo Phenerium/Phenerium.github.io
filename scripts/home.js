@@ -1,54 +1,125 @@
 var dados;  // Variável que armazena o documento XML
-var lista_elementos; // Lista com os elementos disponíveis
-var i;      // Variável auxiliar para percorrer os containers
-var max_i;  // Variável auxiliar que determina o máximo de itens
-var funcoes = {};  // Objeto que armazenará as funções que irão abrir
-
 pegar_dados();  // Função que pega os dados do XML logo que o documento é carregado
-var clock = setInterval(trocador, 4000);  // Criamos um relógio para que os elementos sejam alterados
 
+var i = -1; // Variável auxiliar para a alteração dos elementos de maneira elegante
+var clock;  // Definição da variável que irá alterar os elementos periodicamente
 
-function apagar() {  // Remove os itens para que possamos printar novos
-    var items = document.getElementsByClassName("item_container");  // Coletamos todos os itens
-    for (var aux = 0; aux < items.length; aux += 1){  // Percorremos todos os itens
-        items[aux].style.display = "none";  // Definimos o display como nulo
-        if (items[aux].classList.contains("marker")) {  // Se tiver o marcador
-            items[aux].classList.remove("marker"); // Tiramos a mesma
-        }
-    }
-}
-function atualizador () {  // Atualiza os itens disponíveis na tela para trocar
-    lista_elementos = document.getElementsByClassName("marker");  // Coleta os itens mostrados
-    max_i = lista_elementos.length - 1;  // Define que o valor máximo deve ser proporcional
-    i = 0;  // Reseta o valor da variável auxiliar utilizada para a alteração dos blocos
-}
 
 function trocador(sentido=1) {  // Altera os dados do container descritivo
+    var elementos = document.getElementsByClassName("item_container");  // Lista de elementos
+    var max_i = elementos.length;  // Atualizamos o numero máximo de alteração de miniatura
     sentido = Number(sentido);  // Primeiro convertemos a variável para número
     i += sentido;  // Aumentamos o índice da variável
 
-    if (i > max_i) {i = 0}  // Se passar do máximos voltamos pro inicio
-    else if (i < 0) {i = max_i}  // Se passar do mínimo voltamos para o máximo
+    if (i > max_i  - 1) {i = 0}  // Se passar do máximos voltamos pro inicio
+    else if (i < 0) {i = max_i - 1}  // Se passar do mínimo voltamos para o máximo
 
-    trocar_elemento(lista_elementos[i]);  // Por fim, usamos a função anterior para trocar
+    atualizar_descricao(elementos[i]);  // Por fim, usamos a função anterior para trocar
+
+    if (clock != undefined){  // Se o relógio já existir
+        clearInterval(clock);  // Limpamos o contador
+        clock = setInterval(trocador, 4000);}  // Atualizamos
+    else {  // Caso o relógio ainda não exista
+        clock = setInterval(trocador, 4000)}  // Apenas criamos ele
 }
-function trocar_elemento(elemento) {  // Usada para disponibilizar a legenda do elemento
 
-   if (lista_elementos.length > 1) {  // Se houver mais que dois elementos realizamos a animação
-       clearInterval(clock);  // Removemos o relógio para que a animação não pule diretamente
-       clock = setInterval(trocador, 4000);}  // Adicionamos uma nova instância da classe trocadora
-   else {clearInterval(clock)}  // Caso contrário apenas removemos a função
+function pegar_dados(){  // Adquire a informação do banco de dados
+    var xhttp = new XMLHttpRequest();  // Cria uma nova requisição
+    xhttp.open("GET", "data.xml", true);  // Usa o método "GET" para abrir
+    xhttp.send();  // Envia os dados para o servidor
 
-    /* Nas linhas abaixo apenas pegamos as informações SEM ESPAÇO */
-    var pai = elemento.getElementsByTagName("p")[0].innerHTML.trim();
-    var titulo = elemento.getElementsByTagName("h1")[0].innerHTML.trim();
-    var sumario = elemento.getElementsByTagName("h3")[0].innerHTML.trim();
-    var imagem = elemento.getElementsByTagName("img")[0].src.trim();
-    var de = elemento.getElementsByTagName("h4")[0].innerHTML.trim();
-    var por = elemento.getElementsByTagName("h2")[0].innerHTML.trim();
+    /* No comando abaixo definimos que depois de receber a aprovação o banco de dados será atualizado e a imagem irá adaptar os elementos */
+    xhttp.onreadystatechange = function() {if (this.readyState === 4 && this.status === 200) {dados = this.responseXML; criar_selecoes()}}
+}
+
+function criar_selecoes(){  // Função que criará os menus guia
+    var elementos = dados.getElementsByTagName("produtos")[0].childNodes;  // Coleta os nós
+    var divisoria = document.getElementsByClassName("menu")[0];  // Coletamos também a divisória
+
+    for (let aux = 1; aux < elementos.length; aux += 2) {  // Corremos os elementos
+        let elemento = document.createElement("p");  // Criamos o elemento
+        elemento.innerHTML = elementos[aux].nodeName;  // Definimos o texto
+        elemento.style.cursor = "pointer";  // Atribuimos o estilo do ponteiro
+        elemento.classList.add("options");  // Marcamos o elemento como uma opção
+        elemento.addEventListener('click', alterar_selecao);  // Bind do evento
+        divisoria.appendChild(elemento);  // Por fim, adicionamos o elemento à tela
+
+        /* Se for o primeiro elemento, marcamos ele como selecionado */
+        if (aux == 1) {elemento.click()}}
+}
+
+function alterar_selecao(evento) {  // Função que mostra os itens de acordo com a classe
+    var categoria = dados.getElementsByTagName(evento.target.innerHTML)[0];  // Coletamos a categoria
+    var divisoria = document.getElementById("exibir");  // Coletamos a divisória que alocará os elementos
+    var apagar = divisoria.getElementsByClassName("item_container").length;  // Quantidade de itens a ser removidos
+    var menus = document.getElementsByClassName("options");  // Armazena todos os menus disponíveis
+    i = -1;  // Alteramos a variável auxiliar para que a troca de elementos seja coerente
+
+    for (let aux = 0; aux < menus.length; aux += 1) {  // Marcamos o menu com o estilo do elemento selecionado
+        if (menus[aux] == evento.target) {evento.target.classList.add("menu_selecionado")}
+        else {menus[aux].classList.remove("menu_selecionado")}}
+
+   document.getElementById("selecionado").innerHTML = evento.target.innerHTML;  // Atualizamos o titulo da categoria
 
 
-    document.getElementById("imagem_destacada").addEventListener("click", funcoes[pai]);
+    /* No comando abaixo, removemos os itens (se houverem) para que a tela fique limpa de acordo com a quantidade correta */
+    if (apagar > 0) {for (let aux = 0; aux < apagar; aux += 1) {divisoria.removeChild(divisoria.childNodes[5])}}
+
+    if (categoria.nodeName == "Destaques") {  // Se for destaques
+        for (let aux = 1; aux < categoria.childNodes.length; aux += 2){  // Corremos os filhos
+            let nome = dados.getElementsByTagName(categoria.childNodes[aux].innerHTML.trim())[0];  // Coletamos a referencia
+            preencher(nome)}}  // E por fim, adicionamos
+    else {    // Caso contrário
+        for (let aux = 1; aux < categoria.childNodes.length; aux += 2){  // Coremos os elementos filhos
+            preencher(categoria.childNodes[aux])}}  // E adicionamos os elementos
+
+    trocador();  // Alteramos o elemento e realizamos as trocas temporárias
+
+    function preencher(tag) {  // Caso seja uma categoria genérica apenas plotamos os elementos
+        let container = document.createElement("div");  // Criamos o container do elemento
+        container.classList.add("item_container", "fadeOut");  // Marcamos a classe dele como container e adicionamos o efeito
+        container.addEventListener("animationend", function(){container.classList.remove("fadeOut")});  // Removemos o efeito
+        container.addEventListener('click', function(){window.open("product.html?" + tag.nodeName, "_self")});
+
+        let imagem = document.createElement("img");  // Criamos o elemento de imagem
+        imagem.src = tag.getElementsByTagName("imagem")[0].innerHTML;  // Definimos seu endereço
+
+        let nome = document.createElement("h1");  // Criamos o elemento de nome
+        nome.innerHTML = tag.getElementsByTagName("titulo")[0].innerHTML;  // Definimos seu nome
+
+        let preco = document.createElement("h2");  // Criamos o elemento de preço
+        preco.innerHTML = tag.getElementsByTagName("preco")[0].innerHTML;  // Definimos seu valor
+
+        let disponibilidade = document.createElement("h5");  // Criamos o elemento de disponibilidade
+        let estoque = tag.getElementsByTagName("estoque")[0].innerHTML;  // Coletamos o valor de estoque
+        /* Alteramos o valor e o estilo de acordo com a disponibilidade */
+        if (estoque > 0) {disponibilidade.innerHTML = "Disponível"; disponibilidade.style = "color: green; font-size: 12px; margin: 0"}
+        else {disponibilidade.innerHTML = "Indisponível"; disponibilidade.style = "color: red; font-size: 12px; margin: 0"}
+
+        let item = document.createElement("h3");  // Criamos uma referência oculta do nome do elemento para futuras análises
+        item.innerHTML = tag.nodeName; item.style = "display: none";  // Definimos seu estilo para não atrapalhar
+
+        /* Adicionamos os elementos à tela*/
+        container.appendChild(imagem);
+        container.appendChild(nome);
+        container.appendChild(preco);
+        container.appendChild(item);
+        container.appendChild(disponibilidade);
+        divisoria.appendChild(container)}
+}
+
+function atualizar_descricao(elemento){  // Altera os dados da imagem principal
+    elemento = dados.getElementsByTagName(elemento.getElementsByTagName("h3")[0].innerHTML.trim())[0];
+
+    /* Armazenamos todos os dados de acordo com o elemento dado */
+    var sumario = elemento.getElementsByTagName("sumario")[0].innerHTML.trim();
+    var titulo = elemento.getElementsByTagName("titulo")[0].innerHTML.trim();
+    var imagem = elemento.getElementsByTagName("imagem")[0].innerHTML.trim();
+    var de = elemento.getElementsByTagName("de")[0].innerHTML.trim();
+    var preco = elemento.getElementsByTagName("preco")[0].innerHTML.trim();
+
+    /* Adicionamos uma bind à imagem, para que o usuário seja direcionado à area de itens ao clicar na imagem */
+    document.getElementById("imagem_destacada").addEventListener("click", function(){window.open("product.html?"+elemento.nodeName, "_self")});
 
     /* Se não houver estoque alteramos a legenda e também a sua cor */
     if (de.trim() === "0") {document.getElementById("destaque_preco_de").style.display = "none"; document.getElementById("destaque_preco_por").style.textAlign = "center"}
@@ -69,122 +140,5 @@ function trocar_elemento(elemento) {  // Usada para disponibilizar a legenda do 
     document.getElementById("destaque_titulo").innerHTML = titulo;
     document.getElementById("destaque_descricao").innerHTML = sumario;
     document.getElementById("destaque_preco_de_2").innerHTML = de;
-    document.getElementById("destaque_preco_por_2").innerHTML = por;
+    document.getElementById("destaque_preco_por_2").innerHTML = preco
 }
-
-function alterar_selecao(classe, este=document.getElementById('destaques')) {  // Função que mostra os itens de acordo com a classe
-    apagar();  // Apaga os elementos iniciais
-    var i = 1;  // Variavel auxiliar pra correr os elementos
-
-    /* O trecho abaixo é destinado para o ajuste dos botões do menu de seleção */
-    var menus = document.getElementsByClassName("options");  // Coleta todas as classes
-    for (let aux = 0; aux < menus.length; aux += 1){  // Corre e remove cada uma delas
-        if (menus[aux].classList.contains("menu_selecionado")) {menus[aux].classList.remove("menu_selecionado")}}
-
-    este.classList.add("menu_selecionado");  // Definimos que o elemento em questão é o selecionado
-    document.getElementById("selecionado").innerHTML = este.innerHTML;  // Também alteramos o texto
-
-    if (classe === 'destaques') {  // Se estivermos trabalhando com a classe de destaques
-        var info = dados.getElementsByTagName(classe)[0].childNodes;  // Pegamos os nomes anotados dos itens
-
-        for (let aux = 1; aux < info.length; aux += 2) {  // Percorremos cada um dos itens anotados
-            var procurar = info[aux].textContent;  // E coletamos o valor de cada um deles
-            var achado = dados.getElementsByTagName(procurar.trim())[0];  // Procuramos pela correspondência
-
-            /* Trecho de código para animar os elementos */
-            let objeto = document.getElementById("item_" + String(i));  // Salvamos a referencia da divisória
-            if (!objeto.classList.contains("marker")) {objeto.classList.add("marker")}  // Se não tiver marcamos o elemento
-            if (!objeto.classList.contains("fadeOut")) {objeto.classList.add("fadeOut")}  // Adicionamos a animação se não tiver
-            objeto.addEventListener("animationend", function (){objeto.classList.remove("fadeOut")});  // Removemos a animação no final
-            objeto.addEventListener("click", funcoes[achado.nodeName.trim()]);  // Adicionamos a função respectiva para abrir uma nova página
-
-            /* Nas linhas abaixo coletamos os dados do documento XML */
-            let imagem = achado.getElementsByTagName("imagem")[0].textContent;
-            let titulo = achado.getElementsByTagName("titulo")[0].textContent;
-            let sumario = achado.getElementsByTagName("sumario")[0].textContent;
-            let de = achado.getElementsByTagName("de")[0].textContent;
-            let preco = achado.getElementsByTagName("preco")[0].textContent;
-            let estoque = achado.getElementsByTagName("estoque")[0].textContent;
-
-            /* Nas linhas abaixo realizamos as alterações */
-            objeto.title = sumario;
-            objeto.style.display = "flex";
-            objeto.getElementsByTagName("img")[0].src = imagem;
-            objeto.getElementsByTagName("h1")[0].innerHTML = titulo;
-            objeto.getElementsByTagName("h3")[0].innerHTML = sumario;
-            objeto.getElementsByTagName("h4")[0].innerHTML = de;
-            objeto.getElementsByTagName("h2")[0].innerHTML = preco;
-            objeto.getElementsByTagName("p")[0].innerHTML = achado.nodeName;
-
-            let disponivel = objeto.getElementsByTagName("h5")[0];  // Salvamos o elemento de disponibilidade
-            /* Se tiver mais que um será disponível, caso contrário indisponível. Também ajusta a cor do elemento */
-            if (estoque == 0) {disponivel.style.color = "red"; disponivel.innerHTML = "Indisponível"}
-            else {disponivel.style.color = "green"; disponivel.innerHTML = "Disponível"}
-
-            i += 1;  // No final aumentamos a variável para ir ao próximo container
-        }
-    }
-
-    else {
-        var elementos = dados.getElementsByTagName(classe)[0].childNodes;  // Coletamos todos os elementos da classe
-
-        for (let aux = 1; aux < elementos.length; aux += 2) {  // Percorremos todos os elementos que não são de texto
-
-            let elemento = elementos[aux];  // Salvamos uma referencia do objeto XML
-            let objeto = document.getElementById("item_" + String(i));  // Salvamos a referencia da divisória
-            if (!objeto.classList.contains("marker")) {objeto.classList.add("marker")}  // Se não tiver a marcação adicionamos
-            if (!objeto.classList.contains("fadeOut")) {objeto.classList.add("fadeOut")}  // Se não tiver a animação adicionamos
-            objeto.addEventListener("animationend", function (){objeto.classList.remove("fadeOut")});  // Removemos a animação no final
-            objeto.addEventListener("click", funcoes[elemento.nodeName.trim()]);  // Adicionamos a função respectiva para abrir uma nova página
-
-            /* No trecho abaixo apenas são coletadas as informações do documento XML */
-            let imagem = elemento.getElementsByTagName("imagem")[0].textContent;
-            let titulo = elemento.getElementsByTagName("titulo")[0].textContent;
-            let sumario = elemento.getElementsByTagName("sumario")[0].textContent;
-            let de = elemento.getElementsByTagName("de")[0].textContent;
-            let preco = elemento.getElementsByTagName("preco")[0].textContent;
-            let estoque = elemento.getElementsByTagName("estoque")[0].textContent;
-
-            /* Nas linhas abaixo realizamos as alterações */
-            objeto.title = sumario;
-            objeto.style.display = "flex";
-            objeto.getElementsByTagName("img")[0].src = imagem;
-            objeto.getElementsByTagName("h1")[0].innerHTML = titulo;
-            objeto.getElementsByTagName("h3")[0].innerHTML = sumario;
-            objeto.getElementsByTagName("h4")[0].innerHTML = de;
-            objeto.getElementsByTagName("h2")[0].innerHTML = preco;
-            objeto.getElementsByTagName("p")[0].innerHTML = elemento.nodeName;
-
-            let disponivel = objeto.getElementsByTagName("h5")[0];  // Coletamos o elemento disponibilidade
-            /* Nos dados abaixo apenas adaptamos o texto e a cor devido a quantidade de estoque */
-            if (estoque == 0) {disponivel.style.color = "red"; disponivel.innerHTML = "Indisponível"}
-            else {disponivel.style.color = "green"; disponivel.innerHTML = "Disponível"}
-
-            i += 1;  // No final aumentamos a variável para ir ao próximo container
-        }
-    }
-
-    atualizador();  // Atualizamos a interface com os novos elementos
-    trocar_elemento(lista_elementos[0]);  // E atualizamos as legendas
-}
-
-function pegar_dados(){  // Adquire a informação do banco de dados
-    var xhttp = new XMLHttpRequest();  // Cria uma nova requisição
-    xhttp.open("GET", "data.xml", true);  // Usa o método "GET" para abrir
-    xhttp.send();  // Envia os dados para o servidor
-
-    /* No comando abaixo definimos que depois de receber a aprovação o banco de dados será atualizado e a imagem irá adaptar os elementos */
-    xhttp.onreadystatechange = function() {if (this.readyState === 4 && this.status === 200) {dados = this.responseXML; criar_elementos(); criar_funcoes(); alterar_selecao("destaques")}}}
-function criar_elementos(){  // Cria a quantidade adequada de itens
-    let divisoria = document.getElementById("exibir");  // Pegamos a divisória onde serão criados os itens
-    let quantidade = dados.getElementsByTagName("titulo").length;  // Verificamos a quantidade de itens a ser criados
-
-    for (let aux = 1; aux <= quantidade; aux += 1){  // Percorremos o loop criado cada item
-        divisoria.innerHTML += '<div id="item_'+ aux +'" class="item_container"> <img src="sprites/logo.png">' +
-            ' <h1> Nome do Produto </h1> <h2> Preço </h2> <h5 style="color: green; font-size: 12px; margin: 0">' +
-            ' Disponível </h5> <h3 style="display: none"> Sumário </h3> <h4 style="display: none"> De </h4> <p style="display: none"> cx500 </p></div>'}}
-function criar_funcoes() {  // Cria as funções de abrir os elementos
-    let elementos = dados.getElementsByTagName("titulo");
-    for (let aux = 0; aux < elementos.length; aux += 1) {
-        let nome = dados.getElementsByTagName("titulo")[aux].parentNode.nodeName;
-        funcoes[nome] = function(){window.open("product.html?" + nome, "_self")};}}

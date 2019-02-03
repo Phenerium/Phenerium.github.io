@@ -108,6 +108,7 @@ section {
     border-radius: 15px;
     border: 1px outset #0083fe;
     background-color: white;
+    padding-bottom: 20px;
     margin: 4vh 1vw 3vh 1vw;
 }
 

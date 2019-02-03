@@ -40,9 +40,6 @@
     <section>
         <div class="menu Stretch">
             <h1 style="margin-right: 1vw; margin-left: 1vw"> Categorias </h1>
-            <p onclick="alterar_selecao('destaques', this)" style="cursor: pointer" id="destaques" class="menu_selecionado options"> Destaques </p>
-            <p onclick="alterar_selecao('soldadores', this)" style="cursor: pointer" id="soldadores" class="options"> Soldadores </p>
-            <p onclick="alterar_selecao('fontes', this)" style="cursor: pointer" id="fontes" class="options"> Fontes de Alimentação </p>
         </div>
 
         <div id="exibir" class="exibir">
@@ -53,10 +50,10 @@
                 <img id="botao_voltar" onclick="trocador(-1)" src="sprites/seta.png" class="setas" style="transform: rotateZ(180deg)" >
 
                 <div class="galeria_posicionar">
-                <img id="imagem_destacada" class="imagem_destacada" src="sprites/logo.png">
-                <div id="legenda_imagem" class="legenda_imagem">
+                <img id="imagem_destacada" class="imagem_destacada" src="#">
+                <div id="legenda_imagem" class="legenda_imagem Stretch">
                     <h1 id="destaque_titulo" style="text-align: center"> Título </h1>
-                    <h3 id="destaque_descricao" style="text-align: justify"> Descrição do produto... Bla bla bla bla </h3>
+                    <h3 id="destaque_descricao" style="text-align: justify"> Descrição do produto </h3>
                     <h2 id="destaque_preco_de" style="color: red; margin-bottom: 0"> De R$ <span id="destaque_preco_de_2" style="text-decoration: line-through"> valor </span> por: </h2>
                     <h2 id="destaque_preco_por" style="color: greenyellow; margin-top: 0"> R$ <span id="destaque_preco_por_2"> valor </span> </h2>
                 </div>

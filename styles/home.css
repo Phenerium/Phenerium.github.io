@@ -84,7 +84,7 @@ section {display: flex; align-items: flex-start;}
     width: 20vw;
     font-size: 12px;
 
-    display: none;
+    display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;

@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Observação: NUNCA repetir o nome de um item! -->
 
 <produtos>
 
-    <destaques>
-
+    <Destaques>
         <destaque_1> soldador_350w </destaque_1>
         <destaque_2> cx500 </destaque_2>
+    </Destaques>
 
-    </destaques>
-
-
-    <soldadores>
-
+    <Soldadores>
         <soldador_350w>
             <titulo> Soldador 350w </titulo>
             <sumario> Produto de alto rendimento, destinado à pequenas e médias tarefas. </sumario>
@@ -44,11 +41,9 @@
                 <anuncio_terciario> cx500 </anuncio_terciario>
             </anuncios>
         </soldador_350w>
+    </Soldadores>
 
-    </soldadores>
-
-    <fontes>
-
+    <Fontes>
         <cx500>
             <titulo> Fonte Corsair CX500 </titulo>
             <sumario> Fonte gamer de alto desempenho, destinada à setups robustos. </sumario>
@@ -82,8 +77,7 @@
                 <anuncio_terciario> cx500 </anuncio_terciario>
             </anuncios>
         </cx500>
-
-    </fontes>
+    </Fontes>
 
 </produtos>
 
