@@ -111,7 +111,7 @@ function atualizar_dados(){  // Atualiza as informações passadas
 
     /* Analisamos a disponibilidade e damos um retorno adequado */
     let disponibilidade = document.getElementById("disponibilidade");
-    if (Number(estoque) > 0) {disponibilidade.innerHTML = "Disponível: " + estoque + " unidades"}
+    if (Number(estoque) > 0) {disponibilidade.innerHTML = "Disponível: " + estoque + " unidade(s)"}
     else {disponibilidade.style.color = "red"; disponibilidade.innerHTML = "Indisponível"}
 
     /* Analisamos abaixo se devemos mostrar o pega idiota */
