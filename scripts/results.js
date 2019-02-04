@@ -3,7 +3,7 @@ pegar_dados();  // Atualizamos o banco de dados
 
 
 function produtos(){  // Filtra os resultados obtidos
-    var keywords = window.location.search.slice(1, -1).split("&");  // Separamos em uma array os elementos
+    var keywords = location.search.slice(1, -1).split("&");  // Separamos em uma array os elementos
 
     var elementos = [];  // Variável que irá armazenar os elementos do banco de dados
 
@@ -33,7 +33,7 @@ function criar_elementos(elementos){  // Cria a quantidade adequada de itens
 
         let container = document.createElement("div");  // Criamos uma divisória
         container.classList.add("item_container");  // Ajustamos sua classe
-        container.addEventListener('click', function(){window.open("product?" + elementos[aux].nodeName)});  // Bind da abertura
+        container.addEventListener('click', function(){open("product?" + elementos[aux].nodeName)});  // Bind da abertura
 
         let ele_imagem = document.createElement("img");  // Criamos a imagem
         ele_imagem.src = imagem;  // Ajustamos o enderenço

@@ -80,7 +80,7 @@ function alterar_selecao(evento) {  // Função que mostra os itens de acordo co
         let container = document.createElement("div");  // Criamos o container do elemento
         container.classList.add("item_container", "fadeOut");  // Marcamos a classe dele como container e adicionamos o efeito
         container.addEventListener("animationend", function(){container.classList.remove("fadeOut")});  // Removemos o efeito
-        container.addEventListener('click', function(){window.open("product?" + tag.nodeName, "_self")});
+        container.addEventListener('click', function(){open("product?" + tag.nodeName, "_self")});
 
         let imagem = document.createElement("img");  // Criamos o elemento de imagem
         imagem.src = tag.getElementsByTagName("imagem")[0].innerHTML;  // Definimos seu endereço
@@ -120,7 +120,7 @@ function atualizar_descricao(elemento){  // Altera os dados da imagem principal
     var preco = elemento.getElementsByTagName("preco")[0].innerHTML.trim();
 
     /* Adicionamos uma bind à imagem, para que o usuário seja direcionado à area de itens ao clicar na imagem */
-    document.getElementById("imagem_destacada").addEventListener("click", function(){window.open("product?"+elemento.nodeName, "_self")});
+    document.getElementById("imagem_destacada").addEventListener("click", function(){open("product?"+elemento.nodeName, "_self")});
 
     /* Se não houver estoque alteramos a legenda e também a sua cor */
     if (de.trim() === "0") {document.getElementById("destaque_preco_de").style.display = "none"; document.getElementById("destaque_preco_por").style.textAlign = "center"}
