@@ -16,11 +16,15 @@ function trocador(sentido=1) {  // Altera os dados do container descritivo
 
     atualizar_descricao(elementos[i]);  // Por fim, usamos a função anterior para trocar
 
-    if (clock != undefined){  // Se o relógio já existir
-        clearInterval(clock);  // Limpamos o contador
-        clock = setInterval(trocador, 4000);}  // Atualizamos
-    else {  // Caso o relógio ainda não exista
-        clock = setInterval(trocador, 4000)}  // Apenas criamos ele
+    if (elementos.length > 1) {  // Se houver mais que uma imagem
+        if (clock != undefined){  // Se o relógio já existir
+            clearInterval(clock);  // Limpamos o contador
+            clock = setInterval(trocador, 5000);}  // Atualizamos
+        else {  // Caso o relógio ainda não exista
+            clock = setInterval(trocador, 5000)}}  // Apenas criamos ele
+    else {  // Caso houver apenas um elemento
+        clearInterval(clock)}  // Removemos o relógio
+
 }
 
 function pegar_dados(){  // Adquire a informação do banco de dados
@@ -133,8 +137,8 @@ function atualizar_descricao(elemento){  // Altera os dados da imagem principal
 
     /* Pegamos a referência da imagem maior */
     var legenda_imagem = document.getElementsByClassName("legenda_imagem")[0];
-    legenda_imagem.classList.add("Stretch");
-    legenda_imagem.addEventListener("animationend", function(){document.getElementsByClassName("legenda_imagem")[0].classList.remove("Stretch");});
+    legenda_imagem.classList.add("fadeOut");
+    legenda_imagem.addEventListener("animationend", function(){document.getElementsByClassName("legenda_imagem")[0].classList.remove("fadeOut");});
 
     /* Aplicamos as informações nos elementos da imagem */
     document.getElementById("imagem_destacada").src = imagem;
