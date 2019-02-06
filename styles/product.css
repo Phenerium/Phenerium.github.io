@@ -46,7 +46,7 @@ section {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 
     overflow: hidden;
 }
@@ -194,6 +194,7 @@ section {
 .container_miniaturas {
     flex-grow: 1;
     height: auto;
+
     align-items: flex-start;
     flex-direction: row;
 

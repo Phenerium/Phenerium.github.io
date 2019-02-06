@@ -2,6 +2,7 @@ var dados;  // Variável que armazena os dados
 var lista_miniaturas;  // Coleta as miniaturas
 var imagem_grande;  // Coletamos a imagem grande
 var indice = -1;  // Variável usada para trocar as imagens
+var max_i = 2;  // Armazena a quantidade de miniaturas disponível
 var clock;  // Variável auxiliar para que os elementos se alternem
 
 pegar_dados();  // Pegamos os dados do banco criado com XML
@@ -26,8 +27,8 @@ function selecionar_imagem(elemento) {  // função usada pra trocar a imagem pr
 function trocador(sentido=1){  // Função utilizada para trocar os elementos
     indice += sentido;  // Aumentamos o índice da variável
 
-    if (indice > 2) {indice = 0}  // Se passar do máximos voltamos pro inicio
-    else if (indice < 0) {indice = 2}  // Se passar do mínimo voltamos para o máximo
+    if (indice > max_i) {indice = 0}  // Se passar do máximos voltamos pro inicio
+    else if (indice < 0) {indice = max_i}  // Se passar do mínimo voltamos para o máximo
 
     selecionar_imagem(lista_miniaturas[indice]);}  // Atualizamos a imagem
 
@@ -79,7 +80,10 @@ function atualizar_dados(){  // Atualiza as informações passadas
     document.getElementById("estado").innerHTML = "Produto " + estado;
     document.getElementById("miniatura_1").getElementsByTagName("img")[0].src = imagem1;
     document.getElementById("miniatura_2").getElementsByTagName("img")[0].src = imagem2;
-    document.getElementById("miniatura_3").getElementsByTagName("img")[0].src = imagem3;
+
+    if (Number(imagem3) != 0) {document.getElementById("miniatura_3").getElementsByTagName("img")[0].src = imagem3}
+    else {document.getElementById("miniatura_3").style = "display: none"; max_i = 1}
+
 
     /* Pegamos a referência do objeto que anuncio */
     let anuncio_mobile = document.getElementById("anuncio_mobile");
