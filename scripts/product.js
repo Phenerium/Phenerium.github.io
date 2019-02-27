@@ -126,3 +126,4 @@ function atualizar_dados(){  // Atualiza as informações passadas
     if (Number(garantia) > 0) {    document.getElementById("garantia").innerHTML = "Garantia de " + garantia + " meses"}
     else {document.getElementById("garantia").style.display = "none"}
 }
+
