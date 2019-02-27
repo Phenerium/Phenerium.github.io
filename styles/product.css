@@ -1,4 +1,4 @@
-* {xoutline: 1px solid gray}
+* {outline: 1px solid gray}
 
 section {
     display: flex;
@@ -133,7 +133,7 @@ section {
     grid-column: 2/3;
     grid-row: 1/2;
 
-    padding: 0 5px;
+    padding: 5px 8px;
 
     border-radius:15px;
     border: 1px solid lightblue;
@@ -173,6 +173,9 @@ section {
 75% {left: -2vw}
 100% {left: 0}
 }
+
+
+
 
 @media only screen and (max-width: 768px) {
 

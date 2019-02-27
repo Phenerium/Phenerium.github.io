@@ -101,7 +101,7 @@
 
     <Hard_Disks>
         <HD322HJ>
-            <titulo> HD SATA 320GB SAMSUNG HD322HJ </titulo>
+            <titulo> HD SATA 320GB Samsung HD322HJ </titulo>
             <sumario> Disco rígido de média capacidade fabricado pela Samsung. </sumario>
             <estoque> 1 </estoque>
             <de> 120,00 </de>
@@ -181,7 +181,7 @@
         </WD5000AZLX>
 
         <STL500LM012>
-            <titulo> HD SATA 500GB SAMSUNG ST500LM012 </titulo>
+            <titulo> HD SATA 500GB Samsung ST500LM012 </titulo>
             <sumario> Disco rígido de grande capacidade fabricado pela Seagate. </sumario>
             <estoque> 1 </estoque>
             <de> 120,00 </de>

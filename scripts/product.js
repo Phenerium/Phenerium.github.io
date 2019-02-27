@@ -8,7 +8,7 @@ var clock;  // Variável auxiliar para que os elementos se alternem
 pegar_dados();  // Pegamos os dados do banco criado com XML
 
 function selecionar_imagem(elemento) {  // função usada pra trocar a imagem principal
-    clearInterval(clock); clock = setInterval(trocador, 10000);  // Atualizamos o timer
+    clearInterval(clock); clock = setInterval(trocador, 4000);  // Atualizamos o timer
 
     if (document.getElementsByClassName("miniaturas")[0] == elemento) {indice = 0}
     else if (document.getElementsByClassName("miniaturas")[1] == elemento) {indice = 1}
@@ -119,10 +119,10 @@ function atualizar_dados(){  // Atualiza as informações passadas
     else {disponibilidade.style.color = "red"; disponibilidade.innerHTML = "Indisponível"}
 
     /* Analisamos abaixo se devemos mostrar o pega idiota */
-    if (de.trim() !== "0") {document.getElementById("de_2").innerHTML = de}
+    if (Number(de) > 0) {document.getElementById("de_2").innerHTML = de}
     else {document.getElementById("de").style.display = "none"}
 
     /* Analisamos abaixo se devemos mostrar a garantia */
-    if (Number(garantia) > 0) {document.getElementById("garantia").innerHTML = "Garantia de " + garantia + " meses"}
+    if (Number(garantia) > 0) {    document.getElementById("garantia").innerHTML = "Garantia de " + garantia + " meses"}
     else {document.getElementById("garantia").style.display = "none"}
 }
