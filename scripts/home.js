@@ -84,7 +84,7 @@ function alterar_selecao(evento) {  // Função que mostra os itens de acordo co
         let container = document.createElement("div");  // Criamos o container do elemento
         container.classList.add("item_container", "fadeOut");  // Marcamos a classe dele como container e adicionamos o efeito
         container.addEventListener("animationend", function(){container.classList.remove("fadeOut")});  // Removemos o efeito
-        container.addEventListener('click', function(){open("product.html?" + tag.nodeName, "_self")});
+        container.addEventListener('click', function(){open("product?" + tag.nodeName, "_self")});
 
         let imagem = document.createElement("img");  // Criamos o elemento de imagem
         imagem.src = tag.getElementsByTagName("imagem")[0].innerHTML;  // Definimos seu endereço
