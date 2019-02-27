@@ -57,7 +57,7 @@ section {
     border: 1px solid transparent;
     cursor: pointer
 }
-.miniaturas img {width: 70px; height: 70px}
+.miniaturas img {width: 70px; height: 70px; object-fit: contain;}
 .menu_selecionado {border-color: darkblue}
 .miniaturas:not(.menu_selecionado):hover {border-color: #0083fe}
 

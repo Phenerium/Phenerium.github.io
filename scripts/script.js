@@ -23,7 +23,7 @@ function procurar(event){  // Procura o que o usuário digitou
         let produto = elementos[aux].parentNode;  // E seu pai
 
         for (let aux2 = 0; aux2< keywords.length; aux2 += 1){  // Corremos todos as keywords
-            if (keywords[aux2] != "" && keywords[aux2].length > 2) {  // Se não for uma palavra vazia ou especial
+            if (keywords[aux2] != "" && keywords[aux2].length >= 2) {  // Se não for uma palavra vazia ou especial
                 if (texto.includes(keywords[aux2].toLowerCase())){correspondentes.push(produto); break}}}}  // Se incluir a gente adiciona
      sugestoes(correspondentes)}}  // Por final, acionamos a função que mostra os itens encontrados ao usuário
 
