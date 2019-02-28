@@ -8,9 +8,10 @@
     <Destaques>
         <destaque_1> soldador_350w </destaque_1>
         <destaque_2> h61m-s2ph </destaque_2>
-        <destaque_3> HD322HJ </destaque_3>
-        <destaque_4> WD5000AZLX </destaque_4>
-        <destaque_5> STL500LM012 </destaque_5>
+        <destaque_3> G1610 </destaque_3>
+        <destaque_4> HD322HJ </destaque_4>
+        <destaque_5> WD5000AZLX </destaque_5>
+        <destaque_6> STL500LM012 </destaque_6>
     </Destaques>
 
     <Soldadores>
@@ -92,12 +93,49 @@
             </imagens>
 
             <anuncios>
-                <anuncio_principal> HD322HJ </anuncio_principal>
-                <anuncio_secundario> WD5000AZLX </anuncio_secundario>
-                <anuncio_terciario> STL500LM012 </anuncio_terciario>
+                <anuncio_principal> G1610 </anuncio_principal>
+                <anuncio_secundario> HD322HJ </anuncio_secundario>
+                <anuncio_terciario> WD5000AZLX  </anuncio_terciario>
             </anuncios>
         </h61m-s2ph>
     </Computadores>
+
+    <Processadores>
+        <G1610>
+            <titulo> CPU Intel Celeron G1610 2.60 GHz </titulo>
+            <sumario> Processador de alta tecnologia fabricado pela Intel para os sockets LGA 1155. </sumario>
+            <estoque> 1 </estoque>
+            <de> 0 </de>
+            <preco> 100,00 </preco>
+            <estado> usado </estado>
+            <garantia> 6 </garantia>
+
+            <info>
+                CPU de alta performance fabricada para a tecnologia LGA 1155. Com 2mb de cache, o processador conta com dois núcleos, cada um com duas threads.
+            </info>
+
+            <especs>
+                <spec> Marca: Intel </spec>
+                <spec> Modelo: G1610 </spec>
+                <spec> Socket: LGA 1155 </spec>
+                <spec> Frequência: 2.6 GHz </spec>
+                <spec> Cache: 2 MB SmartCache </spec>
+                <spec> Potência: 55 W </spec>
+            </especs>
+
+            <imagens>
+                <imagem> https://imgur.com/yx1vidY </imagem>
+                <imagem> https://imgur.com/snRphSJ </imagem>
+                <imagem> 0 </imagem>
+            </imagens>
+
+            <anuncios>
+                <anuncio_principal> h61m-s2ph </anuncio_principal>
+                <anuncio_secundario> HD322HJ </anuncio_secundario>
+                <anuncio_terciario> WD5000AZLX </anuncio_terciario>
+            </anuncios>
+        </G1610>
+    </Processadores>
 
     <Hard_Disks>
         <HD322HJ>
