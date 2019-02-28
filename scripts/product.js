@@ -47,10 +47,10 @@ function pegar_dados(){  // Adquire a informação do banco de dados
     xhttp.onreadystatechange = function() {if (this.readyState === 4 && this.status === 200) {dados = this.responseXML; atualizar_elementos(); atualizar_dados()}}}
 
 function atualizar_dados(){  // Atualiza as informações passadas
-    let tag = location.search.slice(1);  // Armazena o nome do elemento
+    let tag = location.search.slice(1).split("&")[0];  // Armazena o nome do elemento
     let elemento = dados.getElementsByTagName(tag)[0];  // Coleta o objeto alvo
 
-    /* Primeiramente coletamos todos os dados básicos do elemento */
+    // Primeiramente coletamos todos os dados básicos do elemento
     let titulo = elemento.getElementsByTagName("titulo")[0].textContent.trim();
     let sumario = elemento.getElementsByTagName("sumario")[0].textContent.trim();
     let estoque = elemento.getElementsByTagName("estoque")[0].textContent.trim();
@@ -66,12 +66,12 @@ function atualizar_dados(){  // Atualiza as informações passadas
     let anuncio2 = dados.getElementsByTagName(elemento.getElementsByTagName("anuncio_secundario")[0].textContent.trim())[0];
     let anuncio3 = dados.getElementsByTagName(elemento.getElementsByTagName("anuncio_terciario")[0].textContent.trim())[0];
 
-    /* Adicionamos as especificações */
+    // Adicionamos as especificações
     let especifidades = document.getElementById("especificacoes");
     for (let aux = 0; aux < elemento.getElementsByTagName("spec").length; aux += 1) {
         especifidades.innerHTML += ("<li>"+elemento.getElementsByTagName("spec")[aux].textContent+"</li>");}
 
-    /* Abaixo acontece a alteração dos elementos, coletados acima */
+    // Abaixo acontece a alteração dos elementos, coletados acima
     document.getElementById("imagem_grande").src = imagem1;
     document.getElementById("titulo").innerHTML = titulo;
     document.getElementById("sumario").innerHTML = sumario;
@@ -85,13 +85,13 @@ function atualizar_dados(){  // Atualiza as informações passadas
     else {document.getElementById("miniatura_3").style = "display: none"; max_i = 1}
 
 
-    /* Pegamos a referência do objeto que anuncio */
+    // Pegamos a referência do objeto que anuncio
     let anuncio_mobile = document.getElementById("anuncio_mobile");
     let anuncio_1 = document.getElementById("anuncio_1");
     let anuncio_2 = document.getElementById("anuncio_2");
     let anuncio_3 = document.getElementById("anuncio_3");
 
-    /* Ajustamos o conteúdo dos anuncios, um após o outro até acabar */
+    // Ajustamos o conteúdo dos anuncios, um após o outro até acabar
     anuncio_mobile.getElementsByTagName("img")[0].src = anuncio1.getElementsByTagName("imagem")[0].textContent;
     anuncio_mobile.getElementsByTagName("h1")[0].innerHTML = anuncio1.getElementsByTagName("titulo")[0].textContent;
     anuncio_mobile.getElementsByTagName("h2")[0].innerHTML = anuncio1.getElementsByTagName("preco")[0].textContent;
@@ -113,16 +113,16 @@ function atualizar_dados(){  // Atualiza as informações passadas
     anuncio_3.addEventListener("click", function(){open("product?" + anuncio3.nodeName)});
 
 
-    /* Analisamos a disponibilidade e damos um retorno adequado */
+    // Analisamos a disponibilidade e damos um retorno adequado
     let disponibilidade = document.getElementById("disponibilidade");
     if (Number(estoque) > 0) {disponibilidade.innerHTML = "Disponível: " + estoque + " unidade(s)"}
     else {disponibilidade.style.color = "red"; disponibilidade.innerHTML = "Indisponível"}
 
-    /* Analisamos abaixo se devemos mostrar o pega idiota */
+    // Analisamos abaixo se devemos mostrar o pega idiota
     if (Number(de) > 0) {document.getElementById("de_2").innerHTML = de}
     else {document.getElementById("de").style.display = "none"}
 
-    /* Analisamos abaixo se devemos mostrar a garantia */
+    // Analisamos abaixo se devemos mostrar a garantia
     if (Number(garantia) > 0) {    document.getElementById("garantia").innerHTML = "Garantia de " + garantia + " meses"}
     else {document.getElementById("garantia").style.display = "none"}
 }
