@@ -8,7 +8,7 @@ var clock;  // Variável auxiliar para que os elementos se alternem
 pegar_dados();  // Pegamos os dados do banco criado com XML
 
 function selecionar_imagem(elemento) {  // função usada pra trocar a imagem principal
-    clearInterval(clock); clock = setInterval(trocador, 4000);  // Atualizamos o timer
+    clearInterval(clock); clock = setInterval(trocador, 10000);  // Atualizamos o timer
 
     if (document.getElementsByClassName("miniaturas")[0] == elemento) {indice = 0}
     else if (document.getElementsByClassName("miniaturas")[1] == elemento) {indice = 1}
