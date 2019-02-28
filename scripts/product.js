@@ -119,7 +119,7 @@ function atualizar_dados(){  // Atualiza as informações passadas
     else {disponibilidade.style.color = "red"; disponibilidade.innerHTML = "Indisponível"}
 
     // Analisamos abaixo se devemos mostrar o pega idiota
-    if (Number(de) > 0) {document.getElementById("de_2").innerHTML = de}
+    if (isNaN(de)) {document.getElementById("de_2").innerHTML = de}
     else {document.getElementById("de").style.display = "none"}
 
     // Analisamos abaixo se devemos mostrar a garantia
