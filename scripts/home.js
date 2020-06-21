@@ -1,29 +1,38 @@
 var dados;  // Variável que armazena o documento XML
 pegar_dados();  // Função que pega os dados do XML logo que o documento é carregado
 
+var estado = 0;  // Variável auxiliar para impedir que os elementos troquem com o cursor neles
 var i = -1; // Variável auxiliar para a alteração dos elementos de maneira elegante
 var clock;  // Definição da variável que irá alterar os elementos periodicamente
+
+
 
 
 function trocador(sentido=1) {  // Altera os dados do container descritivo
     var elementos = document.getElementsByClassName("item_container");  // Lista de elementos
     var max_i = elementos.length;  // Atualizamos o numero máximo de alteração de miniatura
     sentido = Number(sentido);  // Primeiro convertemos a variável para número
-    i += sentido;  // Aumentamos o índice da variável
 
-    if (i > max_i  - 1) {i = 0}  // Se passar do máximos voltamos pro inicio
-    else if (i < 0) {i = max_i - 1}  // Se passar do mínimo voltamos para o máximo
+    if (!estado){  // Se o usuário NÃO estiver com o cursor em cima do item
+        i += sentido;  // Aumentamos o índice da variável
 
-    atualizar_descricao(elementos[i]);  // Por fim, usamos a função anterior para trocar
+        if (i > max_i  - 1) {i = 0}  // Se passar do máximos voltamos pro inicio
+        else if (i < 0) {i = max_i - 1}  // Se passar do mínimo voltamos para o máximo
 
-    if (elementos.length > 1) {  // Se houver mais que uma imagem
-        if (clock != undefined){  // Se o relógio já existir
-            clearInterval(clock);  // Limpamos o contador
-            clock = setInterval(trocador, 5000);}  // Atualizamos
-        else {  // Caso o relógio ainda não exista
-            clock = setInterval(trocador, 5000)}}  // Apenas criamos ele
-    else {  // Caso houver apenas um elemento
-        clearInterval(clock)}  // Removemos o relógio
+        atualizar_descricao(elementos[i]);  // Por fim, usamos a função anterior para trocar
+
+        if (elementos.length > 1) {  // Se houver mais que uma imagem
+            if (clock != undefined){  // Se o relógio já existir
+                clearInterval(clock);  // Limpamos o contador
+                clock = setInterval(trocador, 5000);}  // Atualizamos
+            else {  // Caso o relógio ainda não exista
+                clock = setInterval(trocador, 5000)}}  // Apenas criamos ele
+        else {  // Caso houver apenas um elemento
+            clearInterval(clock)}  // Removemos o relógio
+    }
+
+
+
 
 }
 
@@ -39,6 +48,11 @@ function pegar_dados(){  // Adquire a informação do banco de dados
 function criar_selecoes(){  // Função que criará os menus guia
     var elementos = dados.getElementsByTagName("produtos")[0].childNodes;  // Coleta os nós
     var divisoria = document.getElementsByClassName("menu")[0];  // Coletamos também a divisória
+
+    var galeria = document.getElementById("galeria");  // Coletamos o elemento e fazemos o efeito hover
+    galeria.addEventListener("mouseenter", function(){estado = 1});
+    galeria.addEventListener("mouseleave", function(){estado = 0});
+
 
     for (let aux = 1; aux < elementos.length; aux += 2) {  // Corremos os elementos
         let elemento = document.createElement("p");  // Criamos o elemento

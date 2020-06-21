@@ -3,12 +3,13 @@ var lista_miniaturas;  // Coleta as miniaturas
 var imagem_grande;  // Coletamos a imagem grande
 var indice = -1;  // Variável usada para trocar as imagens
 var max_i = 2;  // Armazena a quantidade de miniaturas disponível
+var auxiliar = 0; // Necessária para trancar a imagem e não atualizar
 var clock;  // Variável auxiliar para que os elementos se alternem
 
 pegar_dados();  // Pegamos os dados do banco criado com XML
 
 function selecionar_imagem(elemento) {  // função usada pra trocar a imagem principal
-    clearInterval(clock); clock = setInterval(trocador, 10000);  // Atualizamos o timer
+    clearInterval(clock); clock = setInterval(trocador, 5000);  // Atualizamos o timer
 
     if (document.getElementsByClassName("miniaturas")[0] == elemento) {indice = 0}
     else if (document.getElementsByClassName("miniaturas")[1] == elemento) {indice = 1}
@@ -25,16 +26,23 @@ function selecionar_imagem(elemento) {  // função usada pra trocar a imagem pr
     elemento.classList.add("menu_selecionado")}  // No final marcamos o elemento em questão como o ativo
 
 function trocador(sentido=1){  // Função utilizada para trocar os elementos
-    indice += sentido;  // Aumentamos o índice da variável
+    if (!auxiliar) {  // Se o usuário não estiver com o cursor em cima
+       indice += sentido;  // Aumentamos o índice da variável
 
-    if (indice > max_i) {indice = 0}  // Se passar do máximos voltamos pro inicio
-    else if (indice < 0) {indice = max_i}  // Se passar do mínimo voltamos para o máximo
+        if (indice > max_i) {indice = 0}  // Se passar do máximos voltamos pro inicio
+        else if (indice < 0) {indice = max_i}  // Se passar do mínimo voltamos para o máximo
 
-    selecionar_imagem(lista_miniaturas[indice]);}  // Atualizamos a imagem
+        selecionar_imagem(lista_miniaturas[indice]);}  // Atualizamos a imagem
+    }
+
 
 function atualizar_elementos() {  // Atualiza o valor das variáveis logo no inicio
     lista_miniaturas = document.getElementsByClassName("miniaturas");  // Atualizamos a lista com as miniaturas
     imagem_grande = document.getElementById("imagem_grande");  // E também ordenamos que a imagem grande se atualize
+
+    var container = document.getElementsByClassName("dados")[0];
+    container.addEventListener("mouseenter", function(){auxiliar = 1});
+    container.addEventListener("mouseleave", function(){auxiliar = 0});
 
     trocador();}  // Damos inicio ao primeiro pulo, que irá acionar o trigger e continuar a função
 
