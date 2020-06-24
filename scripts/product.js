@@ -29,10 +29,12 @@ function trocador(sentido=1){  // Função utilizada para trocar os elementos
     if (!auxiliar) {  // Se o usuário não estiver com o cursor em cima
        indice += sentido;  // Aumentamos o índice da variável
 
-        if (indice > max_i) {indice = 0}  // Se passar do máximos voltamos pro inicio
-        else if (indice < 0) {indice = max_i}  // Se passar do mínimo voltamos para o máximo
+        if (max_i != 0) {
+            if (indice > max_i) {indice = 0}  // Se passar do máximos voltamos pro inicio
+            else if (indice < 0) {indice = max_i}  // Se passar do mínimo voltamos para o máximo
 
-        selecionar_imagem(lista_miniaturas[indice]);}  // Atualizamos a imagem
+            selecionar_imagem(lista_miniaturas[indice]);}  // Atualizamos a imagem
+        }
     }
 
 
@@ -87,10 +89,27 @@ function atualizar_dados(){  // Atualiza as informações passadas
     document.getElementById("descricao").innerHTML = informacoes;
     document.getElementById("estado").innerHTML = "Produto " + estado;
     document.getElementById("miniatura_1").getElementsByTagName("img")[0].src = imagem1;
-    document.getElementById("miniatura_2").getElementsByTagName("img")[0].src = imagem2;
+//    document.getElementById("miniatura_2").getElementsByTagName("img")[0].src = imagem2;
 
-    if (Number(imagem3) != 0) {document.getElementById("miniatura_3").getElementsByTagName("img")[0].src = imagem3}
-    else {document.getElementById("miniatura_3").style = "display: none"; max_i = 1}
+
+    if (Number(imagem2) == 0) {
+        max_i = 0;
+        document.getElementsByClassName("container_miniaturas")[0].style = "display: none";
+        document.getElementsByClassName("container_imagens")[0].style = "display: none";
+        document.getElementById("miniatura_2").style = "display: none";
+    }
+    else if ((Number(imagem3) == 0) && (Number(imagem2) != 0)){
+        max_i = 1;
+        document.getElementById("miniatura_3").style = "display: none";
+        document.getElementById("miniatura_2").getElementsByTagName("img")[0].src = imagem2;
+    }
+    else {
+        document.getElementById("miniatura_2").getElementsByTagName("img")[0].src = imagem2;
+        document.getElementById("miniatura_3").getElementsByTagName("img")[0].src = imagem3;
+    }
+
+//    if (Number(imagem3) != 0) {document.getElementById("miniatura_3").getElementsByTagName("img")[0].src = imagem3}
+//    else {document.getElementById("miniatura_3").style = "display: none"; max_i = 1}
 
 
     // Pegamos a referência do objeto que anuncio
