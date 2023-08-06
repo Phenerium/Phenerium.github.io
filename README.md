@@ -1,1 +1,1 @@
-Website destinado à divulgação do nosso negócio. Eletrônica Schossler - 2019.
+Preparação da loja virtual
